@@ -1,12 +1,17 @@
+import pdb
+import hf_olmo
 import json
 import openai
 import os
 import pathlib
 from rich.prompt import IntPrompt, Prompt
 from rich.markup import escape
-
+import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import StoppingCriteria, StoppingCriteriaList
 from envs import DialogueEnv
 from utils import num_tokens
+from dialop.openai_utils import openai_caller
 
 try:
     with open(pathlib.Path(__file__).parent / ".api_key") as f:
@@ -22,6 +27,18 @@ if not openai.api_key:
 
 class OutOfContextError(Exception):
     pass
+
+class StoppingCriteriaSub(StoppingCriteria):
+
+    def __init__(self, stops = []):
+      StoppingCriteria.__init__(self)
+      self.stops = stops
+
+    def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor, stops = []):
+        #self.stops = stops
+        for stop_id in self.stops:
+            if input_ids[0][-1].item() == stop_id:
+                return True
 
 class DryRunPlayer:
 
@@ -96,7 +113,8 @@ class LLMPlayer:
             max_tokens=min(remaining, 128),
         )
         kwargs.update(**self.model_kwargs)
-        response = openai.Completion.create(**kwargs)
+        import pdb; pdb.set_trace()
+        response = openai.completions.create(**kwargs)
         self.console.print("Response: ",
                            escape(response["choices"][0]["text"].strip()))
         self.console.print("stop: ", response["choices"][0]["finish_reason"])
@@ -104,7 +122,7 @@ class LLMPlayer:
             if not self.optional:
                 raise OutOfContextError()
             self._remove_optional_context()
-            response = openai.Completion.create(**kwargs)
+            response = openai.completions.create(**kwargs)
             self.console.print("Response: ",
                                escape(response["choices"][0]["text"].strip()))
             self.console.print("stop: ", response["choices"][0]["finish_reason"])
@@ -120,6 +138,182 @@ class LLMPlayer:
             self.prompt[:self.prompt.index(self.optional)] +
             self.prompt[self.prompt.index(self.optional) + len(self.optional):])
         self.removed_optional = True
+
+
+class OpenSourceLLMPlayer:
+
+    def __init__(self, prompt, role, console, model_kwargs=None,
+                 prefix="\nYou:", gpu_id=0, optional=None):
+        self.prompt = prompt
+        self.role = role
+        self.console = console
+        #self.model = "mistralai/Mistral-7B-Instruct-v0.2"
+        #self.model = "mistralai/Mistral-7B-Instruct-v0.1"
+        #self.model = "allenai/OLMo-7B"
+        self.model = "google/gemma-7b"
+        self.device = torch.device(f"cuda:{gpu_id}" if torch.cuda.is_available() else "cpu")
+        self.tokenizer = AutoTokenizer.from_pretrained(self.model)
+        self.model = AutoModelForCausalLM.from_pretrained(self.model, torch_dtype=torch.float16).to(self.device)
+
+        self.optional = optional
+        self.removed_optional = False
+        if self.role in ["user", "agent", "user0", "user1"]:
+            stop_tokens = ["User", "Agent", "You", "\n"]
+        elif self.role in ["player-1", "player-2"]:
+            stop_tokens = ["Partner", "You", "\n"]
+        else:
+            raise NotImplementedError
+        stop_words_ids = [self.tokenizer.convert_tokens_to_ids(self.tokenizer.tokenize(x))[-1] for x in stop_tokens]
+        self.stopping_criteria = StoppingCriteriaList([StoppingCriteriaSub(stops = stop_words_ids)])
+
+        self.model_kwargs = dict(
+            temperature=0.1,
+            top_p=.95,
+            do_sample=True,
+            stopping_criteria=self.stopping_criteria
+            #frequency_penalty=0,
+            #presence_penalty=0,
+            #stop=stop_tokens,
+        )
+        if model_kwargs is not None:
+            self.model_kwargs.update(**model_kwargs)
+        self.prefix = prefix
+    #    self.model = "gpt-3.5-turbo"
+
+    def observe(self, obs):
+        self.prompt += obs
+
+    def respond(self):
+        self.console.rule(f"{self.role}'s turn")
+        if not self.prompt.endswith(self.prefix):
+            self.prompt += self.prefix
+        #self.console.print(escape(self.prompt))
+        remaining = 4096 - num_tokens(self.prompt)
+        if remaining < 0 and self.optional:
+            self._remove_optional_context()
+            remaining = 4096 - num_tokens(self.prompt)
+        # Still out of context after removing
+        if remaining < 0:
+            print("OUT OF CONTEXT! Remaining ", remaining)
+            raise OutOfContextError()
+        kwargs = dict(
+            max_new_tokens=min(remaining, 128),
+        )
+        kwargs.update(**self.model_kwargs)
+        input_messages = [{'role': 'user', 'content': self.prompt}]
+        #input_ids_encoded = self.tokenizer.apply_chat_template(input_messages, return_tensors="pt").to(self.device)
+        encodings = self.tokenizer([self.prompt], return_tensors='pt', return_token_type_ids=False).to(self.device)
+        outputs = self.model.generate(**encodings, **kwargs)
+        generated_ids = outputs[0, encodings.input_ids.shape[1]:]
+        response = self.tokenizer.decode(generated_ids, skip_special_tokens=True)
+
+        #self.console.print(f"{self.role.upper()} response: ",
+        #                   response.strip())
+        #pdb.set_trace()
+        #self.console.print("stop: ", response["choices"][0]["finish_reason"])
+        #if response["choices"][0]["finish_reason"] == "length":
+        #    if not self.optional:
+        #        raise OutOfContextError()
+        #    self._remove_optional_context()
+
+        #    input_messages = [{'role': 'user', 'content': self.prompt}]
+        #    input_ids_encoded = self.tokenizer.apply_chat_template(input_messages, return_tensors="pt").to(self.device)
+        #    outputs = self.model.generate(input_ids_encoded, **kwargs)
+        #    generated_ids = outputs[0, input_ids_encoded.shape[1]+1:]
+        #    response = self.tokenizer.decode(generated_ids, skip_special_tokens=True)
+
+        #    self.console.print("Response: ",
+        #                       escape(response["choices"][0]["text"].strip()))
+        #    self.console.print("stop: ", response["choices"][0]["finish_reason"])
+        #self.console.print(response["usage"])
+        pdb.set_trace()
+        return response.strip()
+
+    def _remove_optional_context(self):
+        print("Cutting out optional context from prompt.")
+        if self.removed_optional:
+            print("!! already removed.")
+            return
+        self.prompt = (
+            self.prompt[:self.prompt.index(self.optional)] +
+            self.prompt[self.prompt.index(self.optional) + len(self.optional):])
+        self.removed_optional = True
+
+
+class ChatGPTPlayer:
+
+    def __init__(self, prompt, role, console, model_kwargs=None,
+                 prefix="\nYou:", gpu_id=0, optional=None):
+        self.prompt = prompt
+        self.role = role
+        self.console = console
+        self.device = torch.device(f"cuda:{gpu_id}" if torch.cuda.is_available() else "cpu")
+
+        self.optional = optional
+        self.removed_optional = False
+        if self.role in ["user", "agent", "user0", "user1"]:
+            stop_tokens = ["User", "Agent", "You", "\n"]
+        elif self.role in ["player-1", "player-2"]:
+            stop_tokens = ["Partner", "You", "\n"]
+        else:
+            raise NotImplementedError
+        #stop_words_ids = [self.tokenizer.convert_tokens_to_ids(self.tokenizer.tokenize(x))[-1] for x in stop_tokens]
+        #self.stopping_criteria = StoppingCriteriaList([StoppingCriteriaSub(stops = stop_words_ids)])
+        self.final_sys_message = {
+            "role": "system",
+            "content": "Send the next message based on the conversation so far. \n If you wish to communicate with your partner, begin your message with [message]. If you wish to propose an assignment, your message must start with [propose], followed by 'Proposal:' and have 8 lines, where each line is of the format Paper: Reviewer. If your partner just proposed an assignment, you must respond with [accept] or [reject]. You can only send [accept] or [reject] after receiving a [propose] message from your partner."
+        }
+
+        self.model_kwargs = dict(
+            temperature=0.1,
+            top_p=.95,
+            frequency_penalty=0,
+            presence_penalty=0,
+            #stop=stop_tokens,
+        )
+        if model_kwargs is not None:
+            self.model_kwargs.update(**model_kwargs)
+        self.prefix = prefix
+        #print(f"Loaded ChatGPT player: {self.role}")
+    #    self.model = "gpt-3.5-turbo"
+
+    def observe(self, obs):
+        try:
+            role, obs_string = obs
+        except Exception as e:
+            pdb.set_trace()
+        #print(f"Player {self.role} adding observation: from {role}, {obs_string}")
+        #pdb.set_trace()
+        self.prompt.append({'role': role, 'content': obs_string})
+
+    def respond(self):
+        #self.console.rule(f"{self.role}'s turn")
+        remaining = 4096# - num_tokens(self.prompt)
+        kwargs = dict(
+            max_new_tokens=min(remaining, 128),
+        )
+        kwargs.update(**self.model_kwargs)
+        input_messages = self.prompt + [self.final_sys_message]
+        #print(len(input_messages))
+        response = openai_caller(input_messages, model='chatgpt', **kwargs)
+        #pdb.set_trace()
+
+        response = response.replace('\n', '<br/>')
+
+        print(f"{self.role.upper()} response: ",
+                           response)
+        return response.strip()
+
+    def _remove_optional_context(self):
+        print("Cutting out optional context from prompt.")
+        if self.removed_optional:
+            print("!! already removed.")
+            return
+        self.prompt = (
+            self.prompt[:self.prompt.index(self.optional)] +
+            self.prompt[self.prompt.index(self.optional) + len(self.optional):])
+        self.removed_optional = True
+
 
 class HumanPlayer:
 

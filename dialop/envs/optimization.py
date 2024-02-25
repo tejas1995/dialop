@@ -1,9 +1,10 @@
+import pdb
 import traceback
 import re
 from pathlib import Path
 
 from dialop.envs import DialogueEnv, GameError
-from dialop.games.optimization import OptimizationGame
+from dialop.games.optimization import OptimizationGame, TASKS
 from dialop.templates import OptimizationPromptTemplate
 
 class OptimizationEnv(DialogueEnv):
@@ -45,9 +46,11 @@ class OptimizationEnv(DialogueEnv):
             if type_ == "message":
                 self.num_msgs += 1
                 if player == "player-1":
-                    obss = [message, f"\nPartner:{message}"]
+                    #obss = [message, f"\nPartner:{message}"]
+                    obss = [('assistant', f"{message}"), ('user', f"{message}")]
                 else:
-                    obss = [f"\nPartner:{message}", message]
+                    #obss = [f"\nPartner:{message}", message]
+                    obss = [('user', f"{message}"), ('assistant', f"{message}")]
                 self.game.message({
                         "data": content,
                         "from_player": self.game.turn_player,
@@ -56,6 +59,7 @@ class OptimizationEnv(DialogueEnv):
             elif type_ == "propose":
                 self.num_msgs += 1
                 obss = self._propose(content)
+                #import pdb; pdb.set_trace()
             elif type_ == "accept" or type_ == "reject":
                 self.num_msgs += 1
                 done, game_infos = self._proposal_response(
@@ -66,17 +70,22 @@ class OptimizationEnv(DialogueEnv):
                     "score_norm": self.game.proposal_reward / self.game.best_assignment_reward,
                 })
                 obss = ["", ""]
-                obss[self.game.turn_player] = f" [{type_}]"
-                obss[1 - self.game.turn_player] = f"\nPartner: [{type_}]"
+                obss[self.game.turn_player] = ('user', f"[{type_}]")
+                obss[1 - self.game.turn_player] = ('assistant', f"[{type_}]")
             else:
                 raise ValueError(f"Message type not found for: {message}.")
         except GameError as e:
-            obss = ["", ""]
-            obss[self.game.turn_player] = f"{message}\nError: {str(e)}"
+            #print(f"Error: {str(e)}")
+            if player == "player-1":
+                #obss = [message, f"\nPartner:{message}"]
+                obss = [('assistant', f"{message}\nError: {str(e)}"), ('user', "")]
+            else:
+                #obss = [f"\nPartner:{message}", message]
+                obss = [('user', f""), ('assistant', f"{message}\nError: {str(e)}")]
         except Exception as e:
             print(f"!!! {traceback.format_exc()}")
             return {
-                **{p: "error" for p in self.players},
+                **{p: ('system', "error") for p in self.players},
                 "done": False,
                 "reward": 0,
                 "turn_player": self.players[self.game.turn_player]
@@ -94,23 +103,30 @@ class OptimizationEnv(DialogueEnv):
         proposal = self._parse_proposal(message)
         self.game.propose(None, self.game.turn_player, proposal_ids=proposal)
         proposer = 1 - self.game.turn_player
-        obss = ["", ""]
-        obss[proposer] = message
-        obss[self.game.turn_player] = (
-            f"\nPartner: {message}"
-            f"\nYou can output one of these choices: [accept] or [reject]")
+        if self.game.turn_player == 0:
+            obss = [("user", f"[propose] {message} \nYou can output one of these choices: [accept] or [reject]"), ("assistant", f"[propose] {message}")]
+        else:
+            obss = [("assistant", f"[propose] {message}"), ("user", f"[propose] {message} \nYou can output one of these choices: [accept] or [reject]")]
+
         return obss
 
     def _init_from_action_log(self):
         obss = {}
         for i, player in enumerate(self.players):
-            table = "\n".join([",".join(map(str, row)) for row in self.game.tables[i]])
-            obss[player] = OptimizationPromptTemplate.render(
-                table=table,
-                messages=self.game.action_log,
-                player_id=i,
-                any=any,
-            ).rstrip()
+            #table = "\n".join([",".join(map(str, row)) for row in self.game.tables[i]])
+            #obss[player] = OptimizationPromptTemplate.render(
+            #    table=table,
+            #    messages=self.game.action_log,
+            #    player_id=i,
+            #    any=any,
+            #).rstrip()
+            table = self.game.tables[i]
+            obs_string = "NEW SET OF PAPERS AND REVIEWERS: \n Papers: " + ','.join(table[0][1:]) + " \n Reviewers (along with their scores for some papers) are: "
+            for row in table[1:]:
+                obs_string += row[0] + ": "
+                obs_string += ', '.join([f"{c} for {TASKS[i]}" for i, c in enumerate(row[1:]) if type(c) == int])
+                obs_string += " \n "
+            obss[player] = ('system', obs_string)
         return obss
 
     def _word_overlap_search(self, options, item):

@@ -6,7 +6,7 @@ import tyro
 from dialop.envs import (
     OptimizationEnv, PlanningEnv, MediationEnv
     )
-from dialop.players import HumanPlayer, LLMPlayer, MistralPlayer
+from dialop.players import HumanPlayer, LLMPlayer, OpenSourceLLMPlayer
 from dialop.utils import run, run_multiagent
 
 def load_prompt(game, player):
@@ -26,12 +26,9 @@ def main(
       env = MediationEnv()
 
     players = {
-        p: ( HumanPlayer(env.instructions[i], p, console) if i == 0 else \
-            #else LLMPlayer(load_prompt(game, p), p, console))
-            MistralPlayer(load_prompt(game, p), p, console))
+        p: ( OpenSourceLLMPlayer(load_prompt(game, p), p, console, gpu_id=i))
         for i, p in enumerate(env.players)
     }
-    import pdb; pdb.set_trace()
 
     if game == "mediation":
         players["agent"].prefix = "\nYou to"

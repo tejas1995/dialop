@@ -1,3 +1,4 @@
+import pdb
 from collections import defaultdict
 import openai
 import re
@@ -6,6 +7,7 @@ import time
 from dateutil.parser import parse
 from pathlib import Path
 from itertools import cycle
+from dialop.openai_utils import openai_caller
 
 enc = tiktoken.get_encoding("cl100k_base")
 SEP = "=" * 20
@@ -13,15 +15,22 @@ SEP1 = "-" * 20
 
 def run(console, env, players, max_length=30):
     obss = env.reset()
+    history, observations = [], {}
+    observations['PLAYER-1'] = obss['player-1'][1]
+    observations['PLAYER-2'] = obss['player-2'][1]
+    #console.print(f"PLAYER-1 observation: {obss['player-1'][1]}")
+    #console.print(f"PLAYER-2 observation: {obss['player-2'][1]}")
     for t in range(max_length):
-      console.rule("environment obs")
-      console.print(obss)
+      #console.rule("environment obs")
+      #console.print(obss)
       [player.observe(obss[pname]) for pname, player in players.items()]
       resp = players[obss["turn_player"]].respond()
+      history.append(f"{players[obss['turn_player']].role.upper()}: {resp}")
       obss, resample = env.step(resp)
       if obss["done"]:
-        break
-    print(obss)
+        return env, obss, history, observations
+    #print(obss)
+    return env, obss, history, observations
 
 def run_multiagent(console, env, players, max_length=45):
     player_cycle = cycle(players.keys())

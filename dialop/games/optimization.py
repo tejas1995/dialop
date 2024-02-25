@@ -11,14 +11,14 @@ from dialop.games.base_game import DialogueGame
 MAX_TABLES = 10000
 
 TASKS = [
-    "BLEU: a Method for Automatic Evaluation of MT",
-    "Electra: Pre-training Text Encoders as Discriminators",
-    "GloVe: Global Vectors for Word Representation",
-    "GLUE: A Multi-Task Benchmark and Analysis Platform for NLU",
-    "LLaMA: Open and Efficient Foundation Language Models",
-    "RoBERTa: A Robustly Optimized BERT Pretraining Approach",
-    "QuAC: Question Answering in Context",
-    "SWAG: An Adversarial Dataset for Commonsense Inference",
+    "BLEU",
+    "Electra",
+    "GloVe",
+    "GLUE",
+    "LLaMA",
+    "RoBERTa",
+    "QuAC",
+    "SWAG",
 ]
 
 TASKS_SHORT = [task.split(":")[0] for task in TASKS]

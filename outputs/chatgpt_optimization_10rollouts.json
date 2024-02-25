@@ -1,0 +1,523 @@
+[
+  {
+    "best_assignment": [
+      "Ava Li: LLaMA",
+      "Daniel Nguyen: GloVe",
+      "Sofia Patel: BLEU",
+      "Andrei Petrov: Electra",
+      "Morgan Reed: RoBERTa",
+      "Joseph Santos: GLUE",
+      "Ethan Smith: SWAG",
+      "Noah Wilson: QuAC"
+    ],
+    "best_assignment_reward": 573,
+    "cost": 0.16521349999999999,
+    "dialog_history": [
+      "PLAYER-1: [message] We did a great job on the last round! Let's see what we have this time.",
+      "PLAYER-2: [message] Looks like we have some interesting options this time. Let's take a look at the reviewers and papers before making any decisions.",
+      "PLAYER-1: [message] Let's start by looking at the reviewers and their scores for the papers. Let me know if you have any initial thoughts on potential assignments.",
+      "PLAYER-2: [message] Let's start by looking at the reviewers and their scores for the papers. Let me know if you have any initial thoughts on potential assignments.",
+      "PLAYER-1: [message] Do you have any preferences for specific papers based on the reviewers' scores?",
+      "PLAYER-2: It seems like there are some reviewers who have high scores for multiple papers. Let's try to maximize the overall fit by assigning reviewers to papers where they have the highest scores.",
+      "PLAYER-2: Let's try to match reviewers with papers where they have the highest scores to maximize the overall fit.",
+      "PLAYER-2: Let's try to match reviewers with papers where they have the highest scores to maximize the overall fit.",
+      "PLAYER-2: Let's start by looking at the reviewers and their scores for the papers. Let me know if you have any initial thoughts on potential assignments.",
+      "PLAYER-2: Based on the reviewers' scores, it seems like we can make some good matches. Let's try to assign reviewers to papers where they have the highest scores to maximize the fit.",
+      "PLAYER-2: [messsage] It looks like we have some reviewers who are strong candidates for multiple papers. Let's try to make the best assignments based on their scores.",
+      "PLAYER-2: Based on the reviewers' scores, it seems like we can make some good matches. Let's try to assign reviewers to papers where they have the highest scores to maximize the fit.",
+      "PLAYER-2: Based on the reviewers' scores, it seems like we can make some good matches. Let's try to assign reviewers to papers where they have the highest scores to maximize the fit.",
+      "PLAYER-2: Let's start by assigning reviewers to papers where they have the highest scores to maximize the fit.",
+      "PLAYER-2: Let's try to match reviewers with papers where they have the highest scores to maximize the overall fit.",
+      "PLAYER-2: It seems like we both have some reviewers with high scores for multiple papers. Let's try to make the best assignments based on the available information.",
+      "PLAYER-2: It seems like we both have some reviewers with high scores for multiple papers. Let's try to make the best assignments based on the available information.",
+      "PLAYER-2: It seems like we have some reviewers who are strong candidates for multiple papers. Let's try to make the best assignments based on the available information.",
+      "PLAYER-2: It seems like we have some reviewers who are strong candidates for multiple papers. Let's try to make the best assignments based on the available information.",
+      "PLAYER-2: It seems like we have some reviewers who are strong candidates for multiple papers. Let's try to make the best assignments based on the available information.",
+      "PLAYER-2: Based on our discussion, it seems like we have some reviewers who are strong candidates for multiple papers. Let's try to make the best assignments based on the available information.",
+      "PLAYER-2: Based on the reviewers' scores, it seems like we can make some good matches. Let's try to assign reviewers to papers where they have the highest scores to maximize the fit.",
+      "PLAYER-2: [propose] Proposal:<br/>- BLEU: Sofia Patel<br/>- Electra: Andrei Petrov<br/>- GLUE: Daniel Nguyen<br/>- GloVe: Ava Li<br/>- LLaMA: Joseph Santos<br/>- RoBERTa: Ethan Smith<br/>- QuAC: Morgan Reed<br/>- SWAG: Noah Wilson",
+      "PLAYER-1: [accept]"
+    ],
+    "player_observations": {
+      "PLAYER-1": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 840 for BLEU, 639 for GloVe, 888 for LLaMA \n Daniel Nguyen: 219 for Electra, 487 for QuAC \n Sofia Patel: 725 for BLEU, 401 for LLaMA, 697 for QuAC \n Andrei Petrov: 706 for Electra, 28 for GLUE, 572 for LLaMA, 706 for QuAC, 28 for SWAG \n Morgan Reed: 391 for Electra, 525 for RoBERTa, 744 for QuAC, 133 for SWAG \n Joseph Santos: 76 for BLEU, 582 for GloVe, 276 for LLaMA \n Ethan Smith: 458 for BLEU, 19 for Electra, 76 for GLUE \n Noah Wilson: 401 for Electra, 143 for GloVe, 372 for GLUE, 763 for LLaMA, 267 for RoBERTa \n ",
+      "PLAYER-2": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 352 for BLEU, 68 for Electra, 268 for GloVe, 373 for LLaMA, 40 for RoBERTa, 176 for SWAG \n Daniel Nguyen: 348 for GloVe, 32 for GLUE, 220 for LLaMA, 232 for RoBERTa \n Sofia Patel: 68 for Electra, 336 for GloVe \n Andrei Petrov: 40 for GloVe, 128 for RoBERTa \n Morgan Reed: 36 for GLUE, 312 for QuAC \n Joseph Santos: 32 for BLEU, 244 for GloVe, 116 for LLaMA \n Ethan Smith: 8 for Electra, 64 for RoBERTa \n Noah Wilson: 12 for BLEU, 112 for RoBERTa, 352 for QuAC \n "
+    },
+    "done": true,
+    "proposed_assignment": [
+      "Ava Li: GloVe",
+      "Ava Li: GloVe",
+      "Ava Li: BLEU",
+      "Ava Li: Electra",
+      "Ava Li: Electra",
+      "Ava Li: BLEU",
+      "Ava Li: BLEU",
+      "Daniel Nguyen: Electra"
+    ],
+    "proposal_reward": 455,
+    "score": 0.794066317626527
+  },
+  {
+    "best_assignment": [
+      "Ava Li: SWAG",
+      "Daniel Nguyen: QuAC",
+      "Sofia Patel: Electra",
+      "Andrei Petrov: BLEU",
+      "Morgan Reed: GLUE",
+      "Joseph Santos: LLaMA",
+      "Ethan Smith: GloVe",
+      "Noah Wilson: RoBERTa"
+    ],
+    "best_assignment_reward": 623,
+    "cost": 0.208074,
+    "dialog_history": [
+      "PLAYER-1: [message] Great job on the last assignment! What are your thoughts on the current set of papers and reviewers?",
+      "PLAYER-2: [message] I think we have some strong candidates for BLEU, Electra, and SWAG. However, we might need to take some risks for papers like QuAC and RoBERTa where we have limited information. Let's try to make the best matches based on the available scores.",
+      "PLAYER-1: [message] It seems like we have some solid options for BLEU, Electra, and SWAG. We may need to take some risks for QuAC and RoBERTa. Let's try to make the best matches based on the available scores.",
+      "PLAYER-2: [message] Let's start by looking at the papers we have the most information on and then we can work on the ones with limited information.",
+      "PLAYER-1: [message] Let's start by focusing on the papers with the most information available and then we can move on to the ones with limited data. Let me know if you have any specific preferences for the initial assignments.",
+      "PLAYER-2: [message] Let's start by assigning reviewers to BLEU, Electra, and SWAG since we have more information on those papers. We can then move on to the papers with limited data.",
+      "PLAYER-1: [message] Let's start by assigning reviewers to BLEU, Electra, and SWAG since we have more information on those papers. We can then move on to the papers with limited data.",
+      "PLAYER-2: [message] Let's assign reviewers to BLEU, Electra, and SWAG first. Do you have any preferences for these papers?",
+      "PLAYER-1: [message] I think Ava Li would be a good fit for BLEU based on her high score for that paper. What do you think?",
+      "PLAYER-2: [message] I agree, Ava Li seems like a strong choice for BLEU. Let's assign her to that paper.",
+      "PLAYER-1: [message] Ava Li has been assigned to BLEU. Who do you think would be a good fit for Electra and SWAG?",
+      "PLAYER-2: [message] Based on the scores, Sofia Patel seems like a good fit for Electra and Joseph Santos could be a good match for SWAG. What do you think?",
+      "PLAYER-1: [message] Sofia Patel for Electra and Joseph Santos for SWAG sound like good choices to me. Let's go ahead and assign them to those papers.",
+      "PLAYER-2: [propose] Proposal:<br/>- Electra: Sofia Patel<br/>- SWAG: Joseph Santos",
+      "PLAYER-2: [message] It seems like we have Sofia Patel for Electra and Joseph Santos for SWAG. Let's move on to the papers with limited data and try to make the best assignments there.",
+      "PLAYER-1: [message] Let's focus on assigning reviewers to the papers with limited data. Do you have any preferences or suggestions for those papers?",
+      "PLAYER-2: [message] Let's consider Morgan Reed for RoBERTa and Andrei Petrov for QuAC based on the available scores. What do you think?",
+      "PLAYER-1: [accept]",
+      "PLAYER-1: [message] I agree with your suggestions. Let's assign Morgan Reed to RoBERTa and Andrei Petrov to QuAC. Let's see if we can finalize the assignments for the remaining papers.",
+      "PLAYER-2: [proposal] <br/>Proposal:<br/>- BLEU: Ava Li<br/>- Electra: Sofia Patel<br/>- GloVe: <br/>- GLUE: <br/>- LLaMA: <br/>- RoBERTa: Morgan Reed<br/>- QuAC: Andrei Petrov<br/>- SWAG: Joseph Santos",
+      "PLAYER-2: [propose] Proposal:<br/>- RoBERTa: Morgan Reed<br/>- QuAC: Andrei Petrov",
+      "PLAYER-2: [accept]",
+      "PLAYER-2: [propose] Proposal:<br/>- RoBERTa: Morgan Reed<br/>- QuAC: Andrei Petrov",
+      "PLAYER-2: [accept]",
+      "PLAYER-2: [accept]",
+      "PLAYER-2: [propose] Proposal:<br/>- RoBERTa: Morgan Reed<br/>- QuAC: Andrei Petrov<br/>- GLUE: Ethan Smith<br/>- GloVe: Daniel Nguyen<br/>- LLaMA: Noah Wilson<br/>- Electra: Ava Li",
+      "PLAYER-2: [accept]",
+      "PLAYER-2: [propose] Proposal:<br/>- RoBERTa: Morgan Reed<br/>- QuAC: Andrei Petrov<br/>- GLUE: Ethan Smith<br/>- GloVe: Daniel Nguyen<br/>- LLaMA: Noah Wilson<br/>- Electra: Ava Li<br/>- BLEU: Sofia Patel<br/>- SWAG: Joseph Santos",
+      "PLAYER-1: [accept]"
+    ],
+    "player_observations": {
+      "PLAYER-1": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 628 for BLEU, 149 for Electra, 634 for SWAG \n Daniel Nguyen: 408 for Electra, 116 for GloVe, 149 for GLUE, 395 for LLaMA \n Sofia Patel: 25 for GloVe, 19 for LLaMA, 84 for QuAC, 181 for SWAG \n Andrei Petrov: 32 for SWAG \n Morgan Reed: 213 for Electra, 485 for LLaMA \n Joseph Santos: 38 for GloVe, 149 for GLUE, 447 for LLaMA, 97 for QuAC \n Ethan Smith: 32 for BLEU, 220 for Electra, 602 for GloVe, 116 for LLaMA \n Noah Wilson: 32 for Electra, 272 for GloVe, 362 for GLUE, 32 for LLaMA, 421 for RoBERTa \n ",
+      "PLAYER-2": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 446 for BLEU, 253 for GloVe, 0 for QuAC, 450 for SWAG \n Daniel Nguyen:  \n Sofia Patel: 32 for BLEU, 441 for Electra, 18 for GloVe, 73 for GLUE, 59 for QuAC, 128 for SWAG \n Andrei Petrov: 400 for BLEU, 312 for GloVe, 170 for GLUE, 161 for QuAC \n Morgan Reed: 151 for Electra, 299 for GLUE, 345 for LLaMA, 253 for RoBERTa \n Joseph Santos: 138 for BLEU \n Ethan Smith: 156 for Electra, 211 for GLUE \n Noah Wilson: 23 for Electra, 257 for GLUE, 23 for LLaMA \n "
+    },
+    "done": true,
+    "proposed_assignment": [
+      "Andrei Petrov: LLaMA",
+      "Ava Li: BLEU",
+      "Ava Li: BLEU",
+      "Daniel Nguyen: BLEU",
+      "Joseph Santos: LLaMA",
+      "Joseph Santos: GLUE",
+      "Sofia Patel: Electra",
+      "Sofia Patel: GLUE"
+    ],
+    "proposal_reward": 498,
+    "score": 0.7993579454253612
+  },
+  {
+    "best_assignment": [
+      "Ava Li: GloVe",
+      "Daniel Nguyen: Electra",
+      "Sofia Patel: SWAG",
+      "Andrei Petrov: QuAC",
+      "Morgan Reed: LLaMA",
+      "Joseph Santos: BLEU",
+      "Ethan Smith: GLUE",
+      "Noah Wilson: RoBERTa"
+    ],
+    "best_assignment_reward": 617,
+    "cost": 0.282114,
+    "dialog_history": [
+      "PLAYER-1: [message] We did a great job on the last one! What are your thoughts on this new set of papers and reviewers?",
+      "PLAYER-2: [message] This set looks challenging with some reviewers having high scores in multiple papers. Let's take a closer look at the scores and see if we can come up with the best assignments.",
+      "PLAYER-1: [message] Let's start by looking at the reviewers who have high scores in multiple papers and try to find the best fit for each paper.",
+      "PLAYER-2: [message] Let's focus on the reviewers with high scores in multiple papers and try to make the best assignments based on their strengths.",
+      "PLAYER-1: [message] Let's focus on maximizing the strengths of the reviewers with high scores in multiple papers to make the best assignments.",
+      "PLAYER-2: Let's start by looking at the reviewers with high scores in multiple papers and try to make the best assignments based on their strengths.",
+      "PLAYER-2: Let's focus on maximizing the strengths of the reviewers with high scores in multiple papers to make the best assignments.",
+      "PLAYER-2: Let's start by looking at the reviewers with high scores in multiple papers and try to make the best assignments based on their strengths.",
+      "PLAYER-2: Let's start by looking at the reviewers with high scores in multiple papers and try to make the best assignments based on their strengths.",
+      "PLAYER-2: Let's start by looking at the reviewers with high scores in multiple papers and try to make the best assignments based on their strengths.",
+      "PLAYER-2: Let's start by looking at the reviewers with high scores in multiple papers and try to make the best assignments based on their strengths.",
+      "PLAYER-2: Let's start by looking at the reviewers with high scores in multiple papers and try to make the best assignments based on their strengths.",
+      "PLAYER-2: Let's start by looking at the reviewers with high scores in multiple papers and try to make the best assignments based on their strengths.",
+      "PLAYER-2: Let's start by looking at the reviewers with high scores in multiple papers and try to make the best assignments based on their strengths.",
+      "PLAYER-2: Let's focus on the reviewers with high scores in multiple papers and try to make the best assignments based on their strengths.",
+      "PLAYER-2: Let's focus on the reviewers with high scores in multiple papers and try to make the best assignments based on their strengths.",
+      "PLAYER-2: Let's focus on the reviewers with high scores in multiple papers and try to make the best assignments based on their strengths.",
+      "PLAYER-2: Let's focus on the reviewers with high scores in multiple papers and try to make the best assignments based on their strengths.",
+      "PLAYER-2: Let's focus on the reviewers with high scores in multiple papers and try to make the best assignments based on their strengths.",
+      "PLAYER-2: [propose] Proposal:<br/>- BLEU: Joseph Santos<br/>- Electra: Ava Li<br/>- GLUE: Sofia Patel<br/>- GloVe: Morgan Reed<br/>- LLaMA: Daniel Nguyen<br/>- RoBERTa: Ethan Smith<br/>- QuAC: Andrei Petrov<br/>- SWAG: Noah Wilson",
+      "PLAYER-1: [accept]"
+    ],
+    "player_observations": {
+      "PLAYER-1": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 65 for RoBERTa, 26 for SWAG \n Daniel Nguyen: 18 for BLEU, 236 for Electra, 111 for GloVe, 91 for GLUE, 163 for QuAC \n Sofia Patel: 20 for LLaMA, 215 for SWAG \n Andrei Petrov: 88 for Electra, 5 for GloVe \n Morgan Reed: 215 for LLaMA \n Joseph Santos: 5 for GloVe, 52 for RoBERTa, 202 for QuAC, 101 for SWAG \n Ethan Smith: 78 for GloVe, 137 for LLaMA, 18 for SWAG \n Noah Wilson: 221 for Electra, 59 for LLaMA, 54 for QuAC \n ",
+      "PLAYER-2": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 69 for BLEU, 671 for GloVe, 98 for SWAG \n Daniel Nguyen: 345 for GLUE, 573 for LLaMA, 128 for RoBERTa, 622 for QuAC \n Sofia Patel: 59 for GloVe, 405 for GLUE, 79 for LLaMA, 899 for QuAC \n Andrei Petrov: 513 for BLEU, 849 for QuAC \n Morgan Reed: 434 for GloVe, 810 for QuAC \n Joseph Santos: 918 for BLEU, 750 for LLaMA, 197 for RoBERTa, 385 for SWAG \n Ethan Smith: 19 for RoBERTa \n Noah Wilson: 790 for BLEU, 217 for GloVe, 622 for RoBERTa, 207 for QuAC \n "
+    },
+    "done": true,
+    "proposed_assignment": [
+      "Ava Li: RoBERTa",
+      "Ava Li: BLEU",
+      "Ava Li: GloVe",
+      "Ava Li: BLEU",
+      "Ava Li: Electra",
+      "Ava Li: BLEU",
+      "Ava Li: BLEU",
+      "Daniel Nguyen: Electra"
+    ],
+    "proposal_reward": 262,
+    "score": 0.4246353322528363
+  },
+  {
+    "best_assignment": [
+      "Ava Li: BLEU",
+      "Daniel Nguyen: LLaMA",
+      "Sofia Patel: GloVe",
+      "Andrei Petrov: Electra",
+      "Morgan Reed: GLUE",
+      "Joseph Santos: SWAG",
+      "Ethan Smith: RoBERTa",
+      "Noah Wilson: QuAC"
+    ],
+    "best_assignment_reward": 595,
+    "cost": 0.398283,
+    "dialog_history": [
+      "PLAYER-1: [message] We did a great job on the last assignment! Let's see what we have this time.",
+      "PLAYER-2: [message] It looks like we have a lot of information this time. Do you have any initial thoughts on how to assign reviewers to papers?",
+      "PLAYER-1: [message] We have a lot of strong candidates for different papers this time. Let's try to maximize the scores by assigning the reviewers strategically.",
+      "PLAYER-2: [message] Do you have any specific preferences for any papers based on the reviewers' scores?",
+      "PLAYER-1: [message] We have strong candidates for different papers, so we should aim to maximize the scores by strategically assigning reviewers based on their strengths. Let's try to balance the assignments to make the best matches.",
+      "PLAYER-2: [message] Do you have any specific preferences for any papers based on the reviewers' scores?",
+      "PLAYER-1: [message] We have strong candidates for different papers, so we should aim to maximize the scores by strategically assigning reviewers based on their strengths. Let's try to balance the assignments to make the best matches.",
+      "PLAYER-2: [message] Do you have any specific preferences for any papers based on the reviewers' scores?",
+      "PLAYER-1: We have a lot of strong candidates for different papers, so we should aim to maximize the scores by strategically assigning reviewers based on their strengths. Let's try to balance the assignments to make the best matches.",
+      "PLAYER-1: [message] Let's start by assigning reviewers to papers where we have the strongest matches based on their scores. Let me know if you have any specific preferences for certain papers.",
+      "PLAYER-2: [message] Let's start by assigning reviewers to papers where we have the strongest matches based on their scores. Let me know if you have any specific preferences for certain papers.",
+      "PLAYER-1: [message] Since we have strong candidates for various papers, let's try to strategically assign reviewers to maximize the overall scores. Let's aim for a well-balanced assignment.",
+      "PLAYER-2: [message] Let's start by looking at the reviewers with the highest scores for each paper and try to match them accordingly.",
+      "PLAYER-1: Let's start by looking at the reviewers with the highest scores for each paper and try to match them accordingly.",
+      "PLAYER-1: [message] Let's start by looking at the reviewers with the highest scores for each paper and try to match them accordingly. Let me know if you have any specific preferences for certain papers.",
+      "PLAYER-2: [message] Let's start by looking at the reviewers with the highest scores for each paper and try to match them accordingly. Let me know if you have any specific preferences for certain papers.",
+      "PLAYER-1: [message] Let's start by looking at the reviewers with the highest scores for each paper and try to match them accordingly. Let's aim for the best overall assignment by leveraging the strengths of each reviewer.",
+      "PLAYER-2: Let's start by looking at the reviewers with the highest scores for each paper and try to match them accordingly. Let me know if you have any specific preferences for certain papers.",
+      "PLAYER-2: Let's start by looking at the reviewers with the highest scores for each paper and try to match them accordingly. Let me know if you have any specific preferences for certain papers.",
+      "PLAYER-2: [propose] Proposal:<br/>- BLEU: Ethan Smith<br/>- Electra: Noah Wilson<br/>- GLUE: Andrei Petrov<br/>- GloVe: Sofia Patel<br/>- LLaMA: Joseph Santos<br/>- RoBERTa: Ava Li<br/>- QuAC: Daniel Nguyen<br/>- SWAG: Morgan Reed",
+      "PLAYER-1: [propose] Proposal:<br/>- BLEU: Ethan Smith<br/>- Electra: Noah Wilson<br/>- GLUE: Andrei Petrov<br/>- GloVe: Sofia Patel<br/>- LLaMA: Joseph Santos<br/>- RoBERTa: Ava Li<br/>- QuAC: Daniel Nguyen<br/>- SWAG: Morgan Reed",
+      "PLAYER-1: [accept]"
+    ],
+    "player_observations": {
+      "PLAYER-1": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 344 for GloVe, 577 for QuAC, 142 for SWAG \n Daniel Nguyen: 104 for GloVe, 67 for RoBERTa \n Sofia Patel: 209 for BLEU, 247 for Electra, 337 for GloVe, 22 for SWAG \n Andrei Petrov: 367 for QuAC \n Morgan Reed: 149 for GloVe, 666 for GLUE \n Joseph Santos: 164 for Electra, 389 for GLUE, 262 for LLaMA, 651 for SWAG \n Ethan Smith: 419 for BLEU, 322 for GloVe, 134 for LLaMA, 494 for SWAG \n Noah Wilson: 22 for Electra, 419 for GloVe, 494 for SWAG \n ",
+      "PLAYER-2": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 460 for BLEU, 261 for GloVe, 153 for RoBERTa \n Daniel Nguyen: 204 for Electra, 96 for GLUE \n Sofia Patel: 159 for BLEU, 153 for GLUE \n Andrei Petrov: 550 for BLEU, 511 for Electra, 420 for LLaMA, 119 for RoBERTa, 278 for QuAC \n Morgan Reed:  \n Joseph Santos: 153 for BLEU, 295 for GLUE, 198 for LLaMA, 102 for QuAC \n Ethan Smith: 318 for BLEU, 408 for Electra, 244 for GloVe, 102 for LLaMA, 369 for RoBERTa, 408 for QuAC \n Noah Wilson: 17 for Electra, 318 for GloVe, 318 for GLUE, 477 for LLaMA, 499 for QuAC \n "
+    },
+    "done": true,
+    "proposed_assignment": [
+      "Ava Li: QuAC",
+      "Ava Li: QuAC",
+      "Ava Li: GloVe",
+      "Ava Li: GLUE",
+      "Ava Li: BLEU",
+      "Ava Li: BLEU",
+      "Ava Li: BLEU",
+      "Daniel Nguyen: GLUE"
+    ],
+    "proposal_reward": 510,
+    "score": 0.8571428571428571
+  },
+  {
+    "best_assignment": [
+      "Ava Li: GloVe",
+      "Daniel Nguyen: BLEU",
+      "Sofia Patel: GLUE",
+      "Andrei Petrov: SWAG",
+      "Morgan Reed: QuAC",
+      "Joseph Santos: RoBERTa",
+      "Ethan Smith: LLaMA",
+      "Noah Wilson: Electra"
+    ],
+    "best_assignment_reward": 669,
+    "cost": 0.412465,
+    "dialog_history": [
+      "PLAYER-1: [message] We did a great job on the last assignment! What are your thoughts on the current set of papers and reviewers?",
+      "PLAYER-2: [message] I think we have some good options for this set as well. I see that Daniel is strong for BLEU and Andrei for GLUE. What do you think?",
+      "PLAYER-1: [message] Daniel for BLEU and Andrei for GLUE sound like solid choices based on their scores. Let's see if we can find good matches for the other papers as well.",
+      "PLAYER-2: [message] It seems like Sofia might be a good fit for SWAG based on her score. What do you think?",
+      "PLAYER-1: [message] Sofia for SWAG sounds like a good match based on her score. Let's see if we can find good matches for the remaining papers as well.",
+      "PLAYER-2: [message] It looks like Morgan might be a good fit for RoBERTa based on his score. What do you think?",
+      "PLAYER-1: [message] Morgan for RoBERTa seems like a good choice based on his score. Let's see if we can finalize the assignments for the remaining papers.",
+      "PLAYER-2: [accept]",
+      "PLAYER-2: [message] It seems like we have good matches for most papers. Let's see if we can finalize the assignments for the remaining papers.",
+      "PLAYER-1: [propose] <br/>Proposal:<br/>- BLEU: Daniel Nguyen<br/>- Electra: Ethan Smith<br/>- GloVe: Joseph Santos<br/>- GLUE: Andrei Petrov<br/>- LLaMA: Sofia Patel<br/>- RoBERTa: Morgan Reed<br/>- QuAC: Noah Wilson<br/>- SWAG: Ava Li",
+      "PLAYER-2: [accept]"
+    ],
+    "player_observations": {
+      "PLAYER-1": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 608 for BLEU, 542 for Electra, 570 for GloVe, 770 for GLUE, 408 for LLaMA \n Daniel Nguyen: 247 for Electra, 228 for SWAG \n Sofia Patel: 285 for Electra, 865 for GLUE, 9 for QuAC \n Andrei Petrov: 922 for GLUE \n Morgan Reed: 228 for BLEU, 808 for QuAC \n Joseph Santos: 199 for GloVe, 351 for QuAC \n Ethan Smith: 399 for Electra, 171 for SWAG \n Noah Wilson: 380 for BLEU, 932 for Electra, 542 for RoBERTa \n ",
+      "PLAYER-2": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 92 for LLaMA, 133 for RoBERTa \n Daniel Nguyen: 206 for BLEU, 55 for Electra, 122 for RoBERTa, 118 for QuAC \n Sofia Patel: 142 for BLEU, 64 for Electra, 25 for GloVe, 34 for LLaMA, 79 for SWAG \n Andrei Petrov: 208 for GLUE, 161 for LLaMA, 178 for QuAC, 185 for SWAG \n Morgan Reed: 114 for Electra, 116 for RoBERTa, 6 for SWAG \n Joseph Santos: 45 for GloVe, 126 for RoBERTa \n Ethan Smith: 90 for Electra, 27 for GloVe, 202 for LLaMA, 103 for RoBERTa \n Noah Wilson: 96 for QuAC \n "
+    },
+    "done": true,
+    "proposed_assignment": [
+      "Ava Li: Electra",
+      "Ava Li: RoBERTa",
+      "Ava Li: LLaMA",
+      "Ava Li: GloVe",
+      "Ava Li: Electra",
+      "Ava Li: Electra",
+      "Ava Li: Electra",
+      "Ava Li: BLEU"
+    ],
+    "proposal_reward": 457,
+    "score": 0.6831091180866966
+  },
+  {
+    "best_assignment": [
+      "Ava Li: SWAG",
+      "Daniel Nguyen: Electra",
+      "Sofia Patel: QuAC",
+      "Andrei Petrov: LLaMA",
+      "Morgan Reed: RoBERTa",
+      "Joseph Santos: GLUE",
+      "Ethan Smith: GloVe",
+      "Noah Wilson: BLEU"
+    ],
+    "best_assignment_reward": 580,
+    "cost": 0.524785,
+    "dialog_history": [
+      "PLAYER-1: [message] Looks like we have a lot of information for this round. Let's see what we can do with these reviewers and papers.",
+      "PLAYER-2: [message] It seems like we have a good amount of information to work with this time. Let's try to make the best assignments based on the scores we have.",
+      "PLAYER-1: [message] Let's start by looking at the papers and reviewers to see which assignments would yield the highest total scores.",
+      "PLAYER-2: [message] Let's start by looking at the papers and reviewers to see which assignments would yield the highest total scores.",
+      "PLAYER-1: [message] Let's focus on matching the reviewers with the papers they have the highest scores for. Let me know if you have any specific preferences or insights on the assignments.",
+      "PLAYER-2: [message] Let's focus on matching the reviewers with the papers they have the highest scores for. Let me know if you have any specific preferences or insights on the assignments.",
+      "PLAYER-1: [message] Let's start by assigning reviewers to papers based on their highest scores. Let me know if you have any specific preferences or insights on the assignments.",
+      "PLAYER-2: [message] Let's start by assigning reviewers to papers based on their highest scores. Let me know if you have any specific preferences or insights on the assignments.",
+      "PLAYER-1: [message] Let's start by assigning reviewers to papers based on their highest scores. Let me know if you have any specific preferences or insights on the assignments.",
+      "PLAYER-2: Let's start by assigning reviewers to papers based on their highest scores. Let me know if you have any specific preferences or insights on the assignments.",
+      "PLAYER-2: Let's start by assigning reviewers to papers based on their highest scores. Let me know if you have any specific preferences or insights on the assignments.",
+      "PLAYER-2: Let's start by assigning reviewers to papers based on their highest scores. Let me know if you have any specific preferences or insights on the assignments.",
+      "PLAYER-2: Let's start by assigning reviewers to papers based on their highest scores. Let me know if you have any specific preferences or insights on the assignments.",
+      "PLAYER-2: Let's start by assigning reviewers to papers based on their highest scores. Let me know if you have any specific preferences or insights on the assignments.",
+      "PLAYER-2: Let's start by assigning reviewers to papers based on their highest scores. Let me know if you have any specific preferences or insights on the assignments.",
+      "PLAYER-2: Let's start by assigning reviewers to papers based on their highest scores. Let me know if you have any specific preferences or insights on the assignments.",
+      "PLAYER-2: Let's start by assigning reviewers to papers based on their highest scores. Let me know if you have any specific preferences or insights on the assignments.",
+      "PLAYER-2: [propose] Proposal:<br/>- BLEU: Sofia Patel<br/>- Electra: Ethan Smith<br/>- GLUE: Noah Wilson<br/>- GloVe: Ava Li<br/>- LLaMA: Morgan Reed<br/>- RoBERTa: Joseph Santos<br/>- QuAC: Andrei Petrov<br/>- SWAG: Daniel Nguyen",
+      "PLAYER-1: [accept]"
+    ],
+    "player_observations": {
+      "PLAYER-1": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 9 for BLEU, 124 for GloVe, 455 for RoBERTa, 183 for QuAC, 390 for SWAG \n Daniel Nguyen: 197 for BLEU, 68 for LLaMA \n Sofia Patel: 271 for GLUE \n Andrei Petrov: 82 for BLEU, 340 for GLUE, 376 for LLaMA, 303 for QuAC \n Morgan Reed: 78 for Electra, 197 for GloVe, 243 for GLUE, 206 for LLaMA, 128 for QuAC, 82 for SWAG \n Joseph Santos: 36 for BLEU, 252 for RoBERTa \n Ethan Smith: 395 for GloVe, 156 for SWAG \n Noah Wilson: 41 for Electra, 257 for GLUE, 179 for LLaMA, 206 for SWAG \n ",
+      "PLAYER-2": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 54 for Electra, 121 for GloVe, 158 for LLaMA \n Daniel Nguyen: 194 for BLEU \n Sofia Patel: 320 for BLEU, 144 for Electra, 130 for GloVe, 266 for GLUE, 266 for LLaMA, 383 for QuAC \n Andrei Petrov: 158 for Electra, 266 for GloVe, 298 for QuAC, 108 for SWAG \n Morgan Reed: 22 for BLEU, 203 for LLaMA, 415 for RoBERTa \n Joseph Santos: 94 for Electra, 171 for LLaMA, 248 for RoBERTa \n Ethan Smith: 293 for BLEU, 280 for Electra, 40 for RoBERTa \n Noah Wilson: 176 for GloVe, 252 for GLUE, 58 for RoBERTa, 58 for QuAC \n "
+    },
+    "done": true,
+    "proposed_assignment": [
+      "Ava Li: GloVe",
+      "Ava Li: RoBERTa",
+      "Ava Li: BLEU",
+      "Ava Li: GloVe",
+      "Ava Li: GloVe",
+      "Ava Li: Electra",
+      "Ava Li: BLEU",
+      "Daniel Nguyen: RoBERTa"
+    ],
+    "proposal_reward": 246,
+    "score": 0.4241379310344828
+  },
+  {
+    "best_assignment": [
+      "Ava Li: QuAC",
+      "Daniel Nguyen: GloVe",
+      "Sofia Patel: SWAG",
+      "Andrei Petrov: Electra",
+      "Morgan Reed: GLUE",
+      "Joseph Santos: RoBERTa",
+      "Ethan Smith: BLEU",
+      "Noah Wilson: LLaMA"
+    ],
+    "best_assignment_reward": 646,
+    "cost": 0.533523,
+    "dialog_history": [
+      "PLAYER-1: [message] Looks like we have Noah Wilson left for SWAG. Who do you think would be a good fit for that paper?",
+      "PLAYER-2: [message] Noah Wilson seems like a good fit for SWAG based on the scores.",
+      "PLAYER-1: [message] Since Noah Wilson seems like a good fit for SWAG, would you like to propose the final assignment?",
+      "PLAYER-2: [accept]",
+      "PLAYER-2: [message] I think we should go with Noah Wilson for SWAG. Would you like to propose the final assignment?",
+      "PLAYER-1: [propose] Proposal:<br/>- BLEU: Sofia Patel<br/>- Electra: Morgan Reed<br/>- GLUE: Joseph Santos<br/>- GloVe: Ava Li<br/>- LLaMA: Daniel Nguyen<br/>- RoBERTa: Andrei Petrov<br/>- QuAC: Ethan Smith<br/>- SWAG: Noah Wilson",
+      "PLAYER-2: [accept]"
+    ],
+    "player_observations": {
+      "PLAYER-1": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 253 for GloVe, 84 for LLaMA, 346 for RoBERTa \n Daniel Nguyen: 641 for Electra, 337 for LLaMA, 658 for QuAC, 582 for SWAG \n Sofia Patel: 151 for BLEU, 582 for LLaMA, 726 for SWAG \n Andrei Petrov: 379 for GLUE, 531 for RoBERTa \n Morgan Reed: 253 for Electra, 227 for GloVe, 624 for GLUE, 430 for LLaMA, 515 for QuAC \n Joseph Santos: 194 for BLEU, 683 for GloVe, 641 for GLUE, 422 for LLaMA, 827 for RoBERTa, 506 for QuAC \n Ethan Smith: 692 for BLEU, 143 for LLaMA, 253 for QuAC \n Noah Wilson:  \n ",
+      "PLAYER-2": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 0 for Electra, 883 for QuAC, 643 for SWAG \n Daniel Nguyen: 912 for GloVe, 384 for LLaMA, 403 for RoBERTa, 662 for SWAG \n Sofia Patel: 259 for GloVe, 211 for GLUE, 710 for QuAC \n Andrei Petrov: 662 for Electra, 422 for GloVe, 432 for GLUE, 806 for QuAC \n Morgan Reed: 278 for BLEU, 710 for GLUE, 489 for LLaMA, 585 for QuAC \n Joseph Santos: 624 for Electra \n Ethan Smith: 720 for GloVe, 192 for GLUE, 528 for RoBERTa, 288 for QuAC \n Noah Wilson: 182 for GloVe, 518 for GLUE, 624 for RoBERTa \n "
+    },
+    "done": true,
+    "proposed_assignment": [
+      "Ava Li: GloVe",
+      "Ava Li: GLUE",
+      "Ava Li: BLEU",
+      "Ava Li: BLEU",
+      "Ava Li: BLEU",
+      "Ava Li: BLEU",
+      "Ava Li: BLEU",
+      "Daniel Nguyen: GLUE"
+    ],
+    "proposal_reward": 380,
+    "score": 0.5882352941176471
+  },
+  {
+    "best_assignment": [
+      "Ava Li: SWAG",
+      "Daniel Nguyen: QuAC",
+      "Sofia Patel: BLEU",
+      "Andrei Petrov: RoBERTa",
+      "Morgan Reed: LLaMA",
+      "Joseph Santos: GloVe",
+      "Ethan Smith: Electra",
+      "Noah Wilson: GLUE"
+    ],
+    "best_assignment_reward": 595,
+    "cost": 0.6475595,
+    "dialog_history": [
+      "PLAYER-1: [message] Great job on the last assignment! What are your thoughts on the next set of papers and reviewers?",
+      "PLAYER-2: [message] I think we should start by looking at the papers with the highest scores and then work our way down from there. What do you think?",
+      "PLAYER-1: [message] That sounds like a good plan. Let's start with the papers with the highest scores and match them with the reviewers who have the best fit. Let me know if you have any specific preferences or insights on the reviewers for each paper.",
+      "PLAYER-2: Based on the information we have, let's start by matching the papers with the highest scores to the reviewers who have the best fit. Let me know if you have any specific preferences or insights on the reviewers for each paper.",
+      "PLAYER-2: Let's start by matching the papers with the highest scores to the reviewers who have the best fit. Let me know if you have any specific preferences or insights on the reviewers for each paper.",
+      "PLAYER-2: Let's start by matching the papers with the highest scores to the reviewers who have the best fit. Let me know if you have any specific preferences or insights on the reviewers for each paper.",
+      "PLAYER-2: [message] Let's start by looking at the papers with the highest scores and then match them with the reviewers who have the best fit. Let me know if you have any specific preferences or insights on the reviewers for each paper.",
+      "PLAYER-1: It seems like we are on the same page with our approach. Let's proceed with matching the papers with the reviewers who have the best fit based on their scores.",
+      "PLAYER-1: [message] Let's start by assigning the papers with the highest scores to the reviewers who have the best fit. Let me know if you have any specific preferences or insights on the reviewers for each paper.",
+      "PLAYER-2: [message] Let's start by assigning the papers with the highest scores to the reviewers who have the best fit. Let me know if you have any specific preferences or insights on the reviewers for each paper.",
+      "PLAYER-1: [message] Let's start by assigning the papers with the highest scores to the reviewers who have the best fit. Let me know if you have any specific preferences or insights on the reviewers for each paper.",
+      "PLAYER-2: Let's start by assigning the papers with the highest scores to the reviewers who have the best fit. Let me know if you have any specific preferences or insights on the reviewers for each paper.",
+      "PLAYER-2: Based on the information we have, I suggest we start by assigning the papers with the highest scores to the reviewers who have the best fit. Let me know if you have any specific preferences or insights on the reviewers for each paper.",
+      "PLAYER-2: Let's start by assigning the papers with the highest scores to the reviewers who have the best fit. Let me know if you have any specific preferences or insights on the reviewers for each paper.",
+      "PLAYER-2: [propose] Proposal:<br/>- SWAG: Ava Li<br/>- QuAC: Morgan Reed<br/>- RoBERTa: Noah Wilson<br/>- GloVe: Sofia Patel<br/>- LLaMA: Joseph Santos<br/>- GLUE: Ethan Smith<br/>- Electra: Daniel Nguyen<br/>- BLEU: Andrei Petrov",
+      "PLAYER-1: [propose] Proposal:<br/>- SWAG: Ava Li<br/>- QuAC: Morgan Reed<br/>- RoBERTa: Noah Wilson<br/>- GloVe: Sofia Patel<br/>- LLaMA: Joseph Santos<br/>- GLUE: Ethan Smith<br/>- Electra: Daniel Nguyen<br/>- BLEU: Andrei Petrov",
+      "PLAYER-1: [accept]"
+    ],
+    "player_observations": {
+      "PLAYER-1": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 563 for Electra \n Daniel Nguyen: 132 for BLEU, 588 for RoBERTa, 754 for QuAC \n Sofia Patel: 174 for LLaMA, 74 for QuAC, 273 for SWAG \n Andrei Petrov: 381 for Electra, 49 for GLUE \n Morgan Reed: 132 for Electra, 762 for LLaMA, 696 for RoBERTa, 455 for QuAC, 140 for SWAG \n Joseph Santos: 33 for BLEU, 24 for GLUE \n Ethan Smith: 555 for Electra, 306 for GLUE, 281 for LLaMA, 513 for RoBERTa, 406 for QuAC, 107 for SWAG \n Noah Wilson: 99 for BLEU, 306 for Electra, 555 for LLaMA, 174 for QuAC \n ",
+      "PLAYER-2": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 563 for Electra, 314 for LLaMA, 762 for QuAC, 812 for SWAG \n Daniel Nguyen: 91 for Electra, 24 for GloVe, 149 for LLaMA \n Sofia Patel: 116 for GloVe, 174 for LLaMA, 273 for SWAG \n Andrei Petrov: 149 for BLEU, 381 for Electra, 41 for GloVe, 165 for SWAG \n Morgan Reed: 314 for GloVe, 455 for QuAC \n Joseph Santos: 33 for BLEU, 803 for GloVe, 24 for GLUE, 414 for QuAC \n Ethan Smith: 24 for BLEU, 447 for GloVe, 306 for GLUE, 406 for QuAC \n Noah Wilson: 621 for RoBERTa, 174 for QuAC \n "
+    },
+    "done": true,
+    "proposed_assignment": [
+      "Andrei Petrov: GloVe",
+      "Ava Li: BLEU",
+      "Daniel Nguyen: BLEU",
+      "Ethan Smith: GLUE",
+      "Joseph Santos: RoBERTa",
+      "Noah Wilson: BLEU",
+      "Sofia Patel: Electra",
+      "Sofia Patel: GloVe"
+    ],
+    "proposal_reward": 234,
+    "score": 0.39327731092436974
+  },
+  {
+    "best_assignment": [
+      "Ava Li: LLaMA",
+      "Daniel Nguyen: SWAG",
+      "Sofia Patel: QuAC",
+      "Andrei Petrov: BLEU",
+      "Morgan Reed: Electra",
+      "Joseph Santos: RoBERTa",
+      "Ethan Smith: GloVe",
+      "Noah Wilson: GLUE"
+    ],
+    "best_assignment_reward": 552,
+    "cost": 0.77845,
+    "dialog_history": [
+      "PLAYER-1: [message] Looks like we have a lot of information this time. Let's take a look at the best assignments based on the scores we have.",
+      "PLAYER-2: [message] It looks like we have a good amount of information this time. Let's try to make the best assignments based on the scores we have.",
+      "PLAYER-1: [message] Let's start by looking at the papers and reviewers we have. Do you have any initial thoughts on who should be assigned to which paper based on the scores?",
+      "PLAYER-2: [message] Let's start by looking at the scores for each paper and reviewer to make the best assignments. Let me know if you have any initial thoughts on who should be assigned to which paper based on the scores.",
+      "PLAYER-1: [message] Let's start by looking at the scores for each paper and reviewer to make the best assignments. Let me know if you have any initial thoughts on who should be assigned to which paper based on the scores.",
+      "PLAYER-2: Let's start by looking at the scores for each paper and reviewer to make the best assignments. Let me know if you have any initial thoughts on who should be assigned to which paper based on the scores.",
+      "PLAYER-2: Let's start by looking at the scores for each paper and reviewer to make the best assignments. Let me know if you have any initial thoughts on who should be assigned to which paper based on the scores.",
+      "PLAYER-2: Let's start by looking at the scores for each paper and reviewer to make the best assignments. Let me know if you have any initial thoughts on who should be assigned to which paper based on the scores.",
+      "PLAYER-2: Let's start by looking at the scores for each paper and reviewer to make the best assignments. Let me know if you have any initial thoughts on who should be assigned to which paper based on the scores.",
+      "PLAYER-2: Let's start by looking at the scores for each paper and reviewer to make the best assignments. Let me know if you have any initial thoughts on who should be assigned to which paper based on the scores.",
+      "PLAYER-2: Let's start by looking at the scores for each paper and reviewer to make the best assignments. Let me know if you have any initial thoughts on who should be assigned to which paper based on the scores.",
+      "PLAYER-2: Based on the scores we have, it seems like Sofia Patel is a strong candidate for many papers. Let's try to make the best assignments based on the information we have.",
+      "PLAYER-2: Based on the scores we have, it seems like Sofia Patel is a strong candidate for many papers. Let's try to make the best assignments based on the information we have.",
+      "PLAYER-2: Based on the scores we have, it seems like Sofia Patel is a strong candidate for many papers. Let's try to make the best assignments based on the information we have.",
+      "PLAYER-2: Based on the scores we have, it seems like Sofia Patel is a strong candidate for many papers. Let's try to make the best assignments based on the information we have.",
+      "PLAYER-2: Based on the scores we have, Sofia Patel seems to be a strong candidate for many papers. Let's try to make the best assignments based on the information we have.",
+      "PLAYER-2: [message] It seems like Sofia Patel is a strong candidate for many papers based on the scores. Let's consider the best assignments for the remaining papers.",
+      "PLAYER-1: [message] It seems like Sofia Patel is a strong candidate for many papers based on the scores. Let's consider the best assignments for the remaining papers.",
+      "PLAYER-2: [message] Let's focus on assigning reviewers to the remaining papers based on the scores we have. Do you have any preferences or suggestions for the assignments?",
+      "PLAYER-1: [message] Let's focus on assigning reviewers to the remaining papers based on the scores we have. Let me know if you have any preferences or suggestions for the assignments.",
+      "PLAYER-2: [propose] Proposal:<br/>- Electra: Sofia Patel<br/>- GLUE: Noah Wilson<br/>- RoBERTa: Ethan Smith<br/>- SWAG: Morgan Reed",
+      "PLAYER-2: [propose] Proposal:<br/>- Electra: Sofia Patel<br/>- GLUE: Noah Wilson<br/>- RoBERTa: Ethan Smith<br/>- SWAG: Morgan Reed",
+      "PLAYER-2: [propose] Proposal:<br/>- Electra: Sofia Patel<br/>- GLUE: Noah Wilson<br/>- RoBERTa: Ethan Smith<br/>- SWAG: Morgan Reed",
+      "PLAYER-2: [propose] Proposal:<br/>- Electra: Sofia Patel<br/>- GLUE: Noah Wilson<br/>- RoBERTa: Ethan Smith<br/>- SWAG: Morgan Reed",
+      "PLAYER-2: [accept]",
+      "PLAYER-2: [propose] Proposal:<br/>- Electra: Sofia Patel<br/>- GLUE: Noah Wilson<br/>- RoBERTa: Ethan Smith<br/>- SWAG: Morgan Reed<br/>- BLEU: Ava Li<br/>- LLaMA: Daniel Nguyen<br/>- QuAC: Joseph Santos<br/>- GloVe: Andrei Petrov",
+      "PLAYER-1: [accept]"
+    ],
+    "player_observations": {
+      "PLAYER-1": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 200 for GLUE, 247 for LLaMA, 141 for RoBERTa, 23 for QuAC, 125 for SWAG \n Daniel Nguyen: 129 for BLEU, 101 for QuAC, 290 for SWAG \n Sofia Patel: 141 for BLEU, 101 for Electra, 270 for GLUE, 113 for RoBERTa \n Andrei Petrov: 200 for Electra, 0 for GLUE, 54 for SWAG \n Morgan Reed: 94 for BLEU, 23 for SWAG \n Joseph Santos: 325 for BLEU, 325 for Electra, 384 for RoBERTa, 23 for QuAC, 7 for SWAG \n Ethan Smith: 321 for GloVe, 168 for LLaMA, 172 for RoBERTa, 58 for SWAG \n Noah Wilson: 184 for GloVe, 333 for GLUE, 113 for LLaMA \n ",
+      "PLAYER-2": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 167 for Electra, 294 for GLUE, 364 for LLaMA \n Daniel Nguyen:  \n Sofia Patel: 150 for Electra, 202 for GloVe, 398 for GLUE, 98 for LLaMA, 358 for SWAG \n Andrei Petrov: 0 for GLUE \n Morgan Reed: 34 for SWAG \n Joseph Santos: 156 for GloVe \n Ethan Smith: 254 for RoBERTa \n Noah Wilson: 491 for GLUE, 323 for RoBERTa \n "
+    },
+    "done": true,
+    "proposed_assignment": [
+      "Andrei Petrov: RoBERTa",
+      "Ava Li: BLEU",
+      "Ava Li: BLEU",
+      "Daniel Nguyen: GloVe",
+      "Daniel Nguyen: BLEU",
+      "Daniel Nguyen: Electra",
+      "Morgan Reed: GLUE",
+      "Sofia Patel: QuAC"
+    ],
+    "proposal_reward": 383,
+    "score": 0.6938405797101449
+  },
+  {
+    "best_assignment": [
+      "Ava Li: GLUE",
+      "Daniel Nguyen: GloVe",
+      "Sofia Patel: LLaMA",
+      "Andrei Petrov: RoBERTa",
+      "Morgan Reed: SWAG",
+      "Joseph Santos: QuAC",
+      "Ethan Smith: Electra",
+      "Noah Wilson: BLEU"
+    ],
+    "best_assignment_reward": 618,
+    "cost": 0.840863,
+    "dialog_history": [
+      "PLAYER-1: [message] Great job on the last assignment! What are your thoughts on the current set of papers and reviewers?",
+      "PLAYER-2: [message] I think we have some strong candidates for most papers, but we might need to take some risks for Electra and SWAG. What do you think?",
+      "PLAYER-1: [message] I agree, we might have to take some risks for Electra and SWAG. Let's see if we can come up with a good assignment.",
+      "PLAYER-2: [message] Let's try to balance the risk with the known strengths we have.",
+      "PLAYER-1: [message] Let's try to balance the risk with the known strengths we have.",
+      "PLAYER-2: [message] Let's start by looking at the papers we have the most information on and assign reviewers to those first.",
+      "PLAYER-1: [message] Let's start by looking at the papers we have the most information on and assign reviewers to those first.",
+      "PLAYER-2: [message] Let's focus on assigning reviewers to papers where we have the most information first. Let's start with Daniel Nguyen for GloVe and Noah Wilson for BLEU.",
+      "PLAYER-1: [accept]",
+      "PLAYER-1: [message] Let's assign Daniel Nguyen to GloVe and Noah Wilson to BLEU as a starting point.",
+      "PLAYER-2: [accept]",
+      "PLAYER-2: [message] Let's assign Daniel Nguyen to GloVe and Noah Wilson to BLEU as a starting point.",
+      "PLAYER-1: [propose] <br/>Proposal:<br/>- BLEU: Noah Wilson<br/>- Electra: Morgan Reed<br/>- GloVe: Daniel Nguyen<br/>- GLUE: Ethan Smith<br/>- LLaMA: Ava Li<br/>- RoBERTa: Sofia Patel<br/>- QuAC: Joseph Santos<br/>- SWAG: Andrei Petrov",
+      "PLAYER-2: [accept]"
+    ],
+    "player_observations": {
+      "PLAYER-1": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 48 for BLEU, 9 for Electra \n Daniel Nguyen: 126 for BLEU, 296 for GloVe, 16 for SWAG \n Sofia Patel: 214 for RoBERTa \n Andrei Petrov: 68 for Electra, 159 for GloVe, 130 for GLUE, 100 for LLaMA, 312 for RoBERTa, 48 for QuAC \n Morgan Reed: 104 for Electra, 240 for GloVe, 45 for GLUE, 84 for RoBERTa, 19 for QuAC \n Joseph Santos: 13 for BLEU, 113 for GLUE, 296 for QuAC \n Ethan Smith: 126 for GloVe, 146 for GLUE \n Noah Wilson: 195 for Electra, 133 for GloVe, 256 for LLaMA \n ",
+      "PLAYER-2": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 114 for BLEU \n Daniel Nguyen: 122 for Electra, 697 for GloVe, 498 for GLUE, 15 for LLaMA, 490 for RoBERTa, 452 for QuAC \n Sofia Patel: 743 for LLaMA \n Andrei Petrov: 321 for BLEU, 375 for GloVe, 306 for GLUE \n Morgan Reed: 176 for BLEU, 245 for Electra, 99 for LLaMA, 199 for RoBERTa, 45 for QuAC \n Joseph Santos: 268 for GLUE, 275 for RoBERTa \n Ethan Smith: 666 for LLaMA, 76 for SWAG \n Noah Wilson: 712 for BLEU, 314 for GloVe, 605 for LLaMA, 268 for SWAG \n "
+    },
+    "done": true,
+    "proposed_assignment": [
+      "Ava Li: SWAG",
+      "Ava Li: LLaMA",
+      "Ava Li: Electra",
+      "Ava Li: LLaMA",
+      "Ava Li: BLEU",
+      "Ava Li: BLEU",
+      "Ava Li: Electra",
+      "Ava Li: BLEU"
+    ],
+    "proposal_reward": 201,
+    "score": 0.32524271844660196
+  }
+]

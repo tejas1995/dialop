@@ -1,0 +1,157 @@
+[
+    {
+        "role": "system", 
+        "content": "You and your partner are area chairs for a conference and you have to assign reviewers to papers. Each of you has some information about which reviewers would be good for which papers, but you'll have to communicate in order to make the best assignments. \n For each game, you will see a table of reviewer-paper similarity scores. The higher the score, the better the fit. You will also see a list of reviewers and papers. You can send messages to your partner, propose assignments, and accept or reject your partner's proposals. \n Your goal is to propose a one-to-one matching between reviewers and papers with the highest sum of scores. \n You will achieve this when either one of you makes a proposal and the other person accepts it. \n All conversations must end with an accepted proposal."
+    },
+    {
+        "role": "system", 
+        "content": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 167 for GLoVe, 431 for SWAG \n Daniel Nguyen: 236 for BLeU, 459 for GLoVe, 213 for QuAC, 83 for SWAG \n Sofia Patel: 171 for GLoVe, 106 for GLUE, 255 for LLaMA \n Andrei Petrov: 60 for BLEU, 13 for GloVE, 306 for QuAC, 320 for SWAG \n Morgan Reed: 162 for QuAC \n Joseph Santos: 190 for BLEU, 18 for GLUE \n Ethan Smith: 204 for Electra, 13 for GloVe, 325 for LLaMA \n Noah Wilson: 185 for GloVe, 380 for QuAC, 283 for SWAG"
+    },
+    {
+        "role": "assistant", 
+        "content": "[message] Hello!"
+    },
+    {
+        "role": "user", 
+        "content": "[message] Hi! Who should we put for SWAG?"
+    },
+    {
+        "role": "assistant", 
+        "content": "[message] I think Ava LI would be good for Swag?"
+    },
+    {
+        "role": "user", 
+        "content": "[message] Sounds good to me!~"
+    },
+    {
+        "role": "assistant", 
+        "content": "[message] I also think Daniel Nguyen woould be good for GloVe if you haven't allocated him yet."
+    },
+    {
+        "role": "user", 
+        "content": "[message] What do you have for LLaMA? I don't have anything for LLaMA."
+    },
+    {
+        "role": "assistant", 
+        "content": "[message] I only have limited information on LLaMA. Sofia Patel might ve a good candidate for it. / Ethan might good for GLUE maybe? / BLEU I don't much information on, but Joseph has a decent score in that field."
+    },
+    {
+        "role": "user", 
+        "content": "[message] I have a really high score for GLUE with Andrei so I am going to keep that one."
+    },
+    {
+        "role": "assistant", 
+        "content": "[message] Who you think would be good for Electra?"
+    },
+    {
+        "role": "user", 
+        "content": "[message] Sofia Patel is the best option for that category on my end."
+    },
+    {
+        "role": "assistant", 
+        "content": "[message] I don't have much information on Morgan Reed or Ethan Smith, how about you?"
+    },
+    {
+        "role": "user", 
+        "content": "[propose] Proposal:<br/>&emsp; - BLEU: Morgan Reed<br/>&emsp; - Electra: Sofia Patel<br/>&emsp; - GLUE: Andrei Petrov<br/>&emsp; - GloVe: Daniel Nguyen<br/>&emsp; - LLaMA: Ethan Smith<br/>&emsp; - QuAC: Noah Wilson<br/>&emsp; - RoBERTa: Joseph Santos<br/>&emsp; - SWAG: Ava Li"
+    },
+    {
+        "role": "assistant", 
+        "content": "[accept]"
+    },
+    {
+        "role": "system", 
+        "content": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 386 for BLEU, 120 for GLUE, 144 for LLaMA, 202 for SWAG \n Daniel Nguyen: 434 for GLUE \n Sofia Patel: 439 for BLEU, 38 for GLUE, 270 for SWAG \n Andrei Petrov: 169 for GloVE, 294 for GLUE, 231 for LLaMA, 101 for QuAC \n Morgan Reed: 14 for BLEU, 144 for Electra, 478 LLaMA \n Joseph Santos: 251 for BLEU, 115 for Electra, 275 for RoBERTa, 154 for QuAC \n Ethan Smith: 86 for BLEU, 19 for GloVE, 19 for LLaMA, 57 for SWAG \n Noah Wilson: 159 for GLUE, 313 for LLaMA, 188 for SWAG"
+    },
+    {
+        "role": "user", 
+        "content": "[message] I am not 10/10 confident on anyone, but lots solid options on my end. Id say my most confident lock in would be Sofia on LLaMA based on what im seeing. Ethan on Glue looks great as well / Ava is above average on BLEU and Glove"
+    },
+    {
+        "role": "assistant", 
+        "content": "[message] Okay, give me a second / so Sofia on LLama / Morgan for me is the BEST on Llama  / they have the best pairing of all my info"
+    },
+    {
+        "role": "user", 
+        "content": "[message] hmm, looks like we have a lot of good options for Llama in that case. Maybe we come back to that. I have a ton of info for quac, the only person I dont know about quac is Joseph. But otherwise, Ethan or Ava is the best at it / Though nobody is great at it to be honest."
+    },
+    {
+        "role": "assistant", 
+        "content": "[message] I have only who is bad at Quac so we can go with who you'd like / Joseph and Andei are 100% out in that category / Let me know if you lock someone in there for now / Canwe lock Daniel into Glue  / he is really strong choice there"
+    },
+    {
+        "role": "user", 
+        "content": "[message] That works for me, that lets me put Ethan onto quac in that case / Do you have andrei as being solid at anything? All I see is that he is kinda good at Glue, but he might be a candidate for taking a gamble"
+    },
+    {
+        "role": "assistant", 
+        "content": "[message] Andrei is mid at Glue / but not worth taking over Daniel"
+    },
+    {
+        "role": "user", 
+        "content": "[message] Ok, sounds good"
+    },
+    {
+        "role": "assistant", 
+        "content": "[message] Sofia is killing it for Bleu / Better than Ava who is also really good"
+    },
+    {
+        "role": "user", 
+        "content": "[message] Hmmm, Sofia is my strongest candidate for Llama, its my most confident pick out of all my info. / but, I do see other options for Ava so maybe its worth it / would you say 9 or 10 out of 10 on Sofia on BLEU?"
+    },
+    {
+        "role": "assistant", 
+        "content": "[message] Is Sofia better than Morgan on Llama / if so we can move Sofia / but Morgan is my best for his Llama knoweldge"
+    },
+    {
+        "role": "user", 
+        "content": "[message] Hmmm, Joseph is solid at Llama as well. And I dont have any other info for Joseph, so I kinda like him there. But I also dont have any other good spots for Morgan, so maybe we roll with that for now. / Do you have any info on who would be a good candidate for roberta at all? / or swag. I got nothing on those, might need to take some risk"
+    },
+    {
+        "role": "assistant", 
+        "content": "[message] Joseph is alright barely"
+    },
+    {
+        "role": "user", 
+        "content": "[message] And what about electra? / I only know bad options for those three."
+    },
+    {
+        "role": "assistant", 
+        "content": "[message] I got Morhan and Jo bad at Electra / do you have enough to fill in the rest"
+    },
+    {
+        "role": "user", 
+        "content": "[message] I got ava and Noah bad at electra / might put andrei there?"
+    },
+    {
+        "role": "assistant", 
+        "content": "[message] Andrei for now agreed / is Jo just Roberta for now"
+    },
+    {
+        "role": "user", 
+        "content": "[message] gonna throw out a proposal but definitely reject if you see something / I have him on swag right now but maybe roberta better? I have no info either way"
+    },
+    {
+        "role": "user", 
+        "content": "[propose] Proposal:<br/>&emsp; - BLEU: Sofia Patel<br/>&emsp; - Electra: Andrei Petrov<br/>&emsp; - GLUE: Daniel Nguyen<br/>&emsp; - GloVe: Ava Li<br/>&emsp; - LLaMA: Morgan Reed<br/>&emsp; - QuAC: Ethan Smith<br/>&emsp; - RoBERTa: Noah Wilson<br/>&emsp; - SWAG: Joseph Santos"
+    },
+    {
+        "role": "assistant", 
+        "content": "[reject]"
+    },
+    {
+        "role": "assistant", 
+        "content": "[message] Thats actually really good / yeah that works  / if you want to re propose / I dont see anything clearly off"
+    },
+    {
+        "role": "user", 
+        "content": "[message] Its scary on my end because almost every person I have locked in has no info on my end haha / its almost all you but Im still fairly confident since none of my scores were insane"
+    },
+    {
+        "role": "user", 
+        "content": "[propose] Proposal:<br/>&emsp; - BLEU: Sofia Patel<br/>&emsp; - Electra: Andrei Petrov<br/>&emsp; - GLUE: Daniel Nguyen<br/>&emsp; - GloVe: Ava Li<br/>&emsp; - LLaMA: Morgan Reed<br/>&emsp; - QuAC: Ethan Smith<br/>&emsp; - RoBERTa: Noah Wilson<br/>&emsp; - SWAG: Joseph Santos"
+    },
+    {
+        "role": "assistant", 
+        "content": "[accept]"}
+]
