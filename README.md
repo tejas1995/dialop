@@ -15,7 +15,7 @@ org_key: "xyz"
 ```
 In `dialop/openai_utils.py`, change the path in L38 to point to that yaml file.
 
-You should be able to run the AI-AI dialog rollouts with `python dialop/llms_only.py --game optimization`.
+You should be able to run the AI-AI dialog rollouts with `python dialop/llms_only.py --game optimization`. You can add `--num_rollouts <value>`, and `--do_print` if you want to print the rollout to the console.
 
 You can play around with prompts in `dialop/prompts/optimization.json`.
 
