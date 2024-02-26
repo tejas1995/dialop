@@ -13,22 +13,24 @@ enc = tiktoken.get_encoding("cl100k_base")
 SEP = "=" * 20
 SEP1 = "-" * 20
 
-def run(console, env, players, max_length=30):
+def run(console, env, players, max_length=30, do_print=False):
     obss = env.reset()
     history, observations = [], {}
     observations['PLAYER-1'] = obss['player-1'][1]
     observations['PLAYER-2'] = obss['player-2'][1]
-    #console.print(f"PLAYER-1 observation: {obss['player-1'][1]}")
-    #console.print(f"PLAYER-2 observation: {obss['player-2'][1]}")
+    if do_print:
+        console.print(f"PLAYER-1 observation: {obss['player-1'][1]}")
+        console.print(f"PLAYER-2 observation: {obss['player-2'][1]}")
     for t in range(max_length):
-      #console.rule("environment obs")
-      #console.print(obss)
-      [player.observe(obss[pname]) for pname, player in players.items()]
-      resp = players[obss["turn_player"]].respond()
-      history.append(f"{players[obss['turn_player']].role.upper()}: {resp}")
-      obss, resample = env.step(resp)
-      if obss["done"]:
-        return env, obss, history, observations
+        if do_print:
+            console.rule("environment obs")
+            console.print(obss)
+        [player.observe(obss[pname]) for pname, player in players.items()]
+        resp = players[obss["turn_player"]].respond(do_print)
+        history.append(f"{players[obss['turn_player']].role.upper()}: {resp}")
+        obss, resample = env.step(resp)
+        if obss["done"]:
+            return env, obss, history, observations
     #print(obss)
     return env, obss, history, observations
 

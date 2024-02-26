@@ -265,7 +265,7 @@ class ChatGPTPlayer:
         }
 
         self.model_kwargs = dict(
-            temperature=0.1,
+            temperature=0.5,
             top_p=.95,
             frequency_penalty=0,
             presence_penalty=0,
@@ -286,7 +286,7 @@ class ChatGPTPlayer:
         #pdb.set_trace()
         self.prompt.append({'role': role, 'content': obs_string})
 
-    def respond(self):
+    def respond(self, do_print=False):
         #self.console.rule(f"{self.role}'s turn")
         remaining = 4096# - num_tokens(self.prompt)
         kwargs = dict(
@@ -300,8 +300,9 @@ class ChatGPTPlayer:
 
         response = response.replace('\n', '<br/>')
 
-        print(f"{self.role.upper()} response: ",
-                           response)
+        if do_print:
+            self.console.print(f"{self.role.upper()} response: ",
+                            response)
         return response.strip()
 
     def _remove_optional_context(self):

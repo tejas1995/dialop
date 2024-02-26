@@ -161,4 +161,4 @@ cython_debug/
 **/*todo*
 .api_key
 .DS_Store
-dialop/.api_key
+./dialop/.api_key

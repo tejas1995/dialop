@@ -1,0 +1,40 @@
+[
+  {
+    "best_assignment": [
+      "Ava Li: QuAC",
+      "Daniel Nguyen: GloVe",
+      "Sofia Patel: Electra",
+      "Andrei Petrov: RoBERTa",
+      "Morgan Reed: GLUE",
+      "Joseph Santos: LLaMA",
+      "Ethan Smith: SWAG",
+      "Noah Wilson: BLEU"
+    ],
+    "best_assignment_reward": 683,
+    "cost": 0.0063045,
+    "dialog_history": [
+      "PLAYER-1: [message] Looks like we have a lot of information for this round. Let's start by discussing our strongest candidates for each paper.",
+      "PLAYER-2: [message] Let's start by discussing our strongest candidates for each paper. Who do you think would be the best fit for each paper based on the scores we have?",
+      "PLAYER-1: [message] I think Ava Li would be a good fit for BLEU, Sofia Patel for Electra, Daniel Nguyen for GLUE, Ava Li for GloVe, Noah Wilson for LLaMA, Morgan Reed for RoBERTa, Joseph Santos for QuAC, and Sofia Patel for SWAG. What do you think?",
+      "PLAYER-2: [propose] Proposal:<br/>- BLEU: Ava Li<br/>- Electra: Sofia Patel<br/>- GLUE: Daniel Nguyen<br/>- GloVe: Ava Li<br/>- LLaMA: Noah Wilson<br/>- RoBERTa: Morgan Reed<br/>- QuAC: Joseph Santos<br/>- SWAG: Sofia Patel",
+      "PLAYER-1: [accept]"
+    ],
+    "player_observations": {
+      "PLAYER-1": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 253 for BLEU, 46 for Electra, 79 for GloVe, 232 for QuAC, 76 for SWAG \n Daniel Nguyen: 35 for GLUE, 112 for RoBERTa, 130 for QuAC \n Sofia Patel: 230 for Electra, 38 for RoBERTa, 53 for QuAC, 132 for SWAG \n Andrei Petrov:  \n Morgan Reed: 97 for LLaMA, 130 for RoBERTa, 155 for QuAC \n Joseph Santos: 66 for QuAC \n Ethan Smith: 189 for Electra, 66 for GLUE \n Noah Wilson: 242 for BLEU, 196 for Electra, 225 for LLaMA, 179 for SWAG \n ",
+      "PLAYER-2": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 190 for GloVe, 214 for GLUE, 67 for RoBERTa \n Daniel Nguyen: 276 for BLEU, 564 for GloVe, 85 for GLUE, 18 for LLaMA, 270 for RoBERTa \n Sofia Patel: 490 for GLUE, 319 for SWAG \n Andrei Petrov: 570 for BLEU, 362 for LLaMA, 552 for RoBERTa, 300 for QuAC \n Morgan Reed: 227 for Electra, 55 for GloVe, 509 for GLUE \n Joseph Santos: 190 for GloVe \n Ethan Smith: 417 for BLEU, 454 for Electra, 355 for RoBERTa, 122 for QuAC, 564 for SWAG \n Noah Wilson: 276 for GLUE \n "
+    },
+    "done": true,
+    "proposed_assignment": [
+      "Andrei Petrov: Electra",
+      "Ava Li: BLEU",
+      "Daniel Nguyen: GloVe",
+      "Ethan Smith: RoBERTa",
+      "Joseph Santos: LLaMA",
+      "Morgan Reed: SWAG",
+      "Noah Wilson: GloVe",
+      "Sofia Patel: BLEU"
+    ],
+    "proposal_reward": 499,
+    "score": 0.7306002928257687
+  }
+]

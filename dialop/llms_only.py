@@ -18,8 +18,22 @@ def load_prompt(game, player):
         fname = f"{game}_{player}.txt" if game != "optimization" else f"{game}.json"
         return json.load(open(Path(__file__).parent / f"prompts/{fname}"))
 
+class CustomConsole:
+    def __init__(self, console: Console, do_print=False):
+        self.console = console
+        self.do_print = do_print
+    
+    def rule(self, *inp):
+        if self.do_print:
+            self.console.rule(*inp)
+    
+    def print(self, *inp):
+        if self.do_print:
+            self.console.print(*inp)
+
 def convert_assignment(assignment):
   converted = []
+  #pdb.set_trace()
   for a in assignment:
     converted.append(f"{WORKERS[a[0]]}: {TASKS[a[1]]}")
   return converted
@@ -27,8 +41,11 @@ def convert_assignment(assignment):
 def main(
     game: Literal["optimization", "planning", "mediation"],
     max_length: int = 30,
+    num_rollouts: int = 1,
+    do_print: bool = False,
     ):
-    console = Console()
+    c = Console()
+    console = CustomConsole(c, do_print=do_print)
     if game == "optimization":
         env = OptimizationEnv()
     elif game == "planning":
@@ -37,14 +54,14 @@ def main(
         env = MediationEnv()
 
 
-    num_rollouts = 20
     out_file = f"outputs/chatgpt_{game}_{num_rollouts}rollouts.json"
     outputs = []
     pbar = tqdm(total=num_rollouts)
     total_score, total_done, mean_score, total_failures, num_attempts = 0.0, 0, 0, 0, 0
     while total_done < num_rollouts:
         num_attempts += 1
-        print(f"Attempt #{num_attempts}")
+        if do_print:
+            print(f"Attempt #{num_attempts}")
 
         env.reset()
         players = {
@@ -52,10 +69,11 @@ def main(
             for i, p in enumerate(env.players)
         }
 
-        env, obss, history, observations = run(console, env, players, max_length)
+        env, obss, history, observations = run(console, env, players, max_length, do_print)
         if obss['done'] is False:
             total_failures += 1
-            print(f"Failed to find an assignment in time")
+            if do_print:
+                print(f"Failed to find an assignment in time")
             pbar.set_description(f"{total_done} assignments made, mean score: {mean_score:.4f}, cost=${openai_caller.compute_cost():.2f}")
             continue
 

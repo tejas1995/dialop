@@ -167,8 +167,8 @@ class OptimizationEnv(DialogueEnv):
             task_index = tasks.index(task)
             worker_index = workers.index(worker)
             # Don't allow duplicate tasks or workers:
-            workers.pop(worker_index)
-            tasks.pop(task_index)
+            #workers.pop(worker_index)
+            #tasks.pop(task_index)
             parsed_proposal.append((task, worker))
             parsed_proposal_indices.append((task_index, worker_index))
         return parsed_proposal_indices
