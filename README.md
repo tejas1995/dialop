@@ -1,3 +1,24 @@
+# Instructions for Sayan
+
+Install packages:
+```
+pip install -e .
+pip install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu118
+pip install transformers --upgrade
+pip install ai2-olmo
+```
+ 
+Create a yaml file with your OpenAI credentials, that looks something like this:
+```
+api_key: "abc"
+org_key: "xyz"
+```
+In `dialop/openai_utils.py`, change the path in L38 to point to that yaml file.
+
+You should be able to run the AI-AI dialog rollouts with `python dialop/llms_only.py --game optimization`.
+
+You can play around with prompts in `dialop/prompts/optimization.json`.
+
 # 📠 The DialOp Environments
 
 _Collaborative decision-oriented dialogue environments for humans and LLM agents._
