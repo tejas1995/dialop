@@ -1,0 +1,46 @@
+[
+  {
+    "best_assignment": [
+      "Ava Li: QuAC",
+      "Daniel Nguyen: SWAG",
+      "Sofia Patel: Electra",
+      "Andrei Petrov: GLUE",
+      "Morgan Reed: RoBERTa",
+      "Joseph Santos: GloVe",
+      "Ethan Smith: LLaMA",
+      "Noah Wilson: BLEU"
+    ],
+    "best_assignment_reward": 625,
+    "cost": 0.101109,
+    "dialog_history": [
+      "PLAYER-1: [message] We did a great job on the last one! What are your thoughts on this new set?",
+      "PLAYER-2: [message] This set looks a bit more challenging with some reviewers having limited information. Let's try to make the best of it!",
+      "PLAYER-1: [message] What do you think about starting with the papers we have the most information on and then filling in the rest?",
+      "PLAYER-2: [message] That sounds like a good approach. Let's start with the reviewers we have the most information on and then fill in the gaps.",
+      "PLAYER-1: [message] Let's start with the reviewers we have the most information on and then fill in the gaps.",
+      "PLAYER-2: [message] Let's start with the reviewers we have the most information on and then fill in the gaps.",
+      "PLAYER-1: [message] Let's start with the reviewers we have the most information on and then fill in the gaps. How about we assign Daniel to LLaMA and Noah to GLUE to start off?",
+      "PLAYER-2: [propose] Proposal:<br/>- LLaMA: Daniel Nguyen<br/>- GLUE: Noah Wilson<br/>- Others: TBD",
+      "PLAYER-2: [propose] Proposal:<br/>- LLaMA: Daniel Nguyen<br/>- GLUE: Noah Wilson<br/>- BLEU: Sofia Patel<br/>- Electra: Joseph Santos<br/>- GloVe: Andrei Petrov<br/>- RoBERTa: Morgan Reed<br/>- QuAC: Ava Li<br/>- SWAG: Ethan Smith",
+      "PLAYER-1: [propose] Proposal:<br/>- LLaMA: Daniel Nguyen<br/>- GLUE: Noah Wilson<br/>- BLEU: Sofia Patel<br/>- Electra: Joseph Santos<br/>- GloVe: Andrei Petrov<br/>- RoBERTa: Morgan Reed<br/>- QuAC: Ava Li<br/>- SWAG: Ethan Smith",
+      "PLAYER-1: [accept]"
+    ],
+    "player_observations": {
+      "PLAYER-1": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 547 for Electra, 522 for GloVe, 522 for RoBERTa, 492 for QuAC \n Daniel Nguyen: 334 for Electra, 322 for LLaMA, 279 for QuAC \n Sofia Patel: 480 for Electra, 127 for QuAC \n Andrei Petrov: 194 for Electra, 583 for GLUE, 212 for LLaMA \n Morgan Reed: 358 for BLEU, 346 for GLUE, 103 for LLaMA, 66 for SWAG \n Joseph Santos: 243 for BLEU, 534 for GLUE, 42 for LLaMA, 316 for RoBERTa, 109 for SWAG \n Ethan Smith: 553 for LLaMA, 0 for QuAC, 486 for SWAG \n Noah Wilson: 492 for GLUE, 224 for LLaMA, 60 for RoBERTa, 0 for QuAC \n ",
+      "PLAYER-2": "NEW SET OF PAPERS AND REVIEWERS: \n Papers: BLEU,Electra,GloVe,GLUE,LLaMA,RoBERTa,QuAC,SWAG \n Reviewers (along with their scores for some papers) are: Ava Li: 101 for SWAG \n Daniel Nguyen: 43 for BLEU, 44 for GloVe, 47 for GLUE, 79 for LLaMA, 4 for RoBERTa \n Sofia Patel: 88 for BLEU, 28 for GloVe, 71 for LLaMA \n Andrei Petrov: 97 for GloVe \n Morgan Reed: 10 for GloVe, 137 for RoBERTa \n Joseph Santos: 65 for Electra, 128 for GloVe, 77 for RoBERTa, 26 for SWAG \n Ethan Smith: 13 for RoBERTa \n Noah Wilson: 77 for Electra, 50 for GloVe, 121 for GLUE, 14 for RoBERTa, 14 for SWAG \n "
+    },
+    "done": true,
+    "proposed_assignment": [
+      "Andrei Petrov: SWAG",
+      "Ava Li: GloVe",
+      "Daniel Nguyen: RoBERTa",
+      "Ethan Smith: BLEU",
+      "Joseph Santos: LLaMA",
+      "Morgan Reed: Electra",
+      "Noah Wilson: QuAC",
+      "Sofia Patel: GLUE"
+    ],
+    "proposal_reward": 296,
+    "score": 0.4736
+  }
+]

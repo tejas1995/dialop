@@ -43,6 +43,7 @@ def main(
     max_length: int = 30,
     num_rollouts: int = 1,
     do_print: bool = False,
+    model_type: str = 'chatgpt'
     ):
     c = Console()
     console = CustomConsole(c, do_print=do_print)
@@ -54,7 +55,7 @@ def main(
         env = MediationEnv()
 
 
-    out_file = f"outputs/chatgpt_{game}_{num_rollouts}rollouts.json"
+    out_file = f"outputs/{model_type.replace('/', '_')}_{game}_{num_rollouts}rollouts.json"
     outputs = []
     pbar = tqdm(total=num_rollouts)
     total_score, total_done, mean_score, total_failures, num_attempts = 0.0, 0, 0, 0, 0
@@ -64,10 +65,16 @@ def main(
             print(f"Attempt #{num_attempts}")
 
         env.reset()
-        players = {
-            p: ( ChatGPTPlayer(load_prompt(game, p), p, console, gpu_id=i))
-            for i, p in enumerate(env.players)
-        }
+        if model_type =='chatgpt':
+            players = {
+                p: ( ChatGPTPlayer(load_prompt(game, p), p, console, gpu_id=i))
+                for i, p in enumerate(env.players)
+            }
+        else:
+            players = {
+                p: ( OpenSourceLLMPlayer(model_type, load_prompt(game, p), p, console, gpu_id=i))
+                for i, p in enumerate(env.players)
+            }
 
         env, obss, history, observations = run(console, env, players, max_length, do_print)
         if obss['done'] is False:

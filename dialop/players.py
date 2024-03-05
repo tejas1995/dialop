@@ -1,3 +1,4 @@
+import copy
 import pdb
 import hf_olmo
 import json
@@ -142,7 +143,7 @@ class LLMPlayer:
 
 class OpenSourceLLMPlayer:
 
-    def __init__(self, prompt, role, console, model_kwargs=None,
+    def __init__(self, model_type, prompt, role, console, model_kwargs=None,
                  prefix="\nYou:", gpu_id=0, optional=None):
         self.prompt = prompt
         self.role = role
@@ -150,10 +151,10 @@ class OpenSourceLLMPlayer:
         #self.model = "mistralai/Mistral-7B-Instruct-v0.2"
         #self.model = "mistralai/Mistral-7B-Instruct-v0.1"
         #self.model = "allenai/OLMo-7B"
-        self.model = "google/gemma-7b"
+        self.model_type = model_type
         self.device = torch.device(f"cuda:{gpu_id}" if torch.cuda.is_available() else "cpu")
-        self.tokenizer = AutoTokenizer.from_pretrained(self.model)
-        self.model = AutoModelForCausalLM.from_pretrained(self.model, torch_dtype=torch.float16).to(self.device)
+        self.tokenizer = AutoTokenizer.from_pretrained(self.model_type)
+        self.model = AutoModelForCausalLM.from_pretrained(self.model_type, torch_dtype=torch.float16).to(self.device)
 
         self.optional = optional
         self.removed_optional = False
@@ -178,34 +179,77 @@ class OpenSourceLLMPlayer:
         if model_kwargs is not None:
             self.model_kwargs.update(**model_kwargs)
         self.prefix = prefix
+        self.final_sys_message = {
+            "role": "system",
+            "content": "Send the next message based on the conversation so far. \n If you wish to communicate with your partner, begin your message with [message]. If you wish to propose an assignment, your message must start with [propose], followed by 'Proposal:' and have 8 lines, where each line is of the format Paper: Reviewer. If your partner just proposed an assignment, you must respond with [accept] or [reject]. You can only send [accept] or [reject] after receiving a [propose] message from your partner."
+        }
     #    self.model = "gpt-3.5-turbo"
 
     def observe(self, obs):
-        self.prompt += obs
+        try:
+            role, obs_string = obs
+        except Exception as e:
+            pdb.set_trace()
+        #print(f"Player {self.role} adding observation: from {role}, {obs_string}")
+        #pdb.set_trace()
+        self.prompt.append({'role': role, 'content': obs_string})
 
-    def respond(self):
-        self.console.rule(f"{self.role}'s turn")
-        if not self.prompt.endswith(self.prefix):
-            self.prompt += self.prefix
-        #self.console.print(escape(self.prompt))
-        remaining = 4096 - num_tokens(self.prompt)
-        if remaining < 0 and self.optional:
-            self._remove_optional_context()
-            remaining = 4096 - num_tokens(self.prompt)
-        # Still out of context after removing
-        if remaining < 0:
-            print("OUT OF CONTEXT! Remaining ", remaining)
-            raise OutOfContextError()
+    def stringify_prompt_message(self, messages):
+        out_str = "" 
+        for m in messages:
+            if m['role'] == 'system':
+                out_str += '\n' + m['content'] + '\n'
+            elif m['role'] == 'user':
+                out_str += 'Player: ' + m['content'] + '\n '
+            elif m['role'] == 'assistant':
+                out_str += 'You: ' + m['content'] + '\n '
+        out_str += 'You: '
+        return out_str
+
+    def mistralify_messages(self, messages):
+        new_input_messages = []
+        for m in messages:
+            if m['role'] == 'system':
+                m['role'] = 'user'
+                new_input_messages.append(m)
+            else:
+                if m['role'] == 'user':
+                    if m['content'].startswith("NEW SET:"):
+                        message_content = m['content'] + " \n"
+                    else:
+                        message_content = "Partner: " + m['content'] + " \n "
+                elif m['role'] == 'assistant':
+                    message_content = "You: " + m['content'] + " \n "
+                if new_input_messages[-1]['role'] == 'assistant':
+                    new_input_messages[-1]['content'] += message_content
+                else:
+                    new_input_messages.append({
+                        'role': 'assistant',
+                        'content': message_content
+                    })
+        return new_input_messages
+
+    def respond(self, do_print=False):
+        remaining = 4096# - num_tokens(self.prompt)
         kwargs = dict(
             max_new_tokens=min(remaining, 128),
         )
         kwargs.update(**self.model_kwargs)
-        input_messages = [{'role': 'user', 'content': self.prompt}]
-        #input_ids_encoded = self.tokenizer.apply_chat_template(input_messages, return_tensors="pt").to(self.device)
-        encodings = self.tokenizer([self.prompt], return_tensors='pt', return_token_type_ids=False).to(self.device)
+        input_messages = self.prompt #+ [self.final_sys_message]
+        #input_messages = self.mistralify_messages(input_messages)
+        #pdb.set_trace()
+        #encodings = self.tokenizer.apply_chat_template(input_messages, return_tensors="pt").to(self.device)
+
+        input_str = self.stringify_prompt_message(input_messages)
+        encodings = self.tokenizer(input_str, return_tensors='pt', return_token_type_ids=False).to(self.device)
         outputs = self.model.generate(**encodings, **kwargs)
         generated_ids = outputs[0, encodings.input_ids.shape[1]:]
         response = self.tokenizer.decode(generated_ids, skip_special_tokens=True)
+        response = response.replace('\n', '<br/>')
+
+        if do_print:
+            self.console.print(f"{self.role.upper()} response: ",
+                            response)
 
         #self.console.print(f"{self.role.upper()} response: ",
         #                   response.strip())
