@@ -104,9 +104,11 @@ class OptimizationEnv(DialogueEnv):
         self.game.propose(None, self.game.turn_player, proposal_ids=proposal)
         proposer = 1 - self.game.turn_player
         if self.game.turn_player == 0:
-            obss = [("user", f"[propose] {message} \nYou can output one of these choices: [accept] or [reject]"), ("assistant", f"[propose] {message}")]
+            #obss = [("user", f"[propose] {message} \nYou can output one of these choices: [accept] or [reject]"), ("assistant", f"[propose] {message}")]
+            obss = [("user", f"[propose] {message}"), ("assistant", f"[propose] {message}")]
         else:
-            obss = [("assistant", f"[propose] {message}"), ("user", f"[propose] {message} \nYou can output one of these choices: [accept] or [reject]")]
+            #obss = [("assistant", f"[propose] {message}"), ("user", f"[propose] {message} \nYou can output one of these choices: [accept] or [reject]")]
+            obss = [("assistant", f"[propose] {message}"), ("user", f"[propose] {message}")]
 
         return obss
 
