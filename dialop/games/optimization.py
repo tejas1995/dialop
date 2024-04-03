@@ -149,7 +149,7 @@ class OptimizationGame(DialogueGame):
             game.turn_player = 1 - last_player
         game.best_assignment_reward = game_state["best_assignment_reward"]
         # Just for UI display
-        game.best_assignment = None
+        game.best_assignment, _ = game.table.find_max_value_known_assignment(game.masks)
         game.combined_tables = None
         return game
 
